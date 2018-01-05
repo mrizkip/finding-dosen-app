@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skripsi.mrizk.findingdosen.ProfilDosenActivity">
+
+    <ImageView
+        android:id="@+id/profilDosen_imageViewParent"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/line_divider"
+        android:layout_alignParentTop="true"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilDosen_imageViewProfile"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:src="@drawable/ic_person_outline_black_24dp"
+        app:civ_border_color="@color/md_grey_800"
+        app:civ_border_width="2dp" />
+
+</RelativeLayout>
