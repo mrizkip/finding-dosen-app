@@ -1,13 +1,15 @@
-package com.skripsi.mrizk.findingdosen;
+package com.skripsi.mrizk.findingdosen.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ProfilDosenActivity extends AppCompatActivity {
+import com.skripsi.mrizk.findingdosen.R;
+
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil_dosen);
+        setContentView(R.layout.activity_register);
     }
 }

@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen;
+package com.skripsi.mrizk.findingdosen.main;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -19,6 +19,7 @@ import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.skripsi.mrizk.findingdosen.R;
 
 import java.util.List;
 
