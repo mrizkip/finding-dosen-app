@@ -1,4 +1,7 @@
-package com.skripsi.mrizk.findingdosen.repository.entity;
+package com.skripsi.mrizk.findingdosen.repository.entity.api;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by mrizk on 16/01/2018.
@@ -14,7 +17,7 @@ public class LoginResponse {
     private String token;
     @SerializedName("logged_in_user")
     @Expose
-    private LoggedInUser loggedInUser;
+    private UserRemote loggedInUser;
 
     public String getMessage() {
         return message;
@@ -32,11 +35,11 @@ public class LoginResponse {
         this.token = token;
     }
 
-    public LoggedInUser getLoggedInUser() {
+    public UserRemote getLoggedInUser() {
         return loggedInUser;
     }
 
-    public void setLoggedInUser(LoggedInUser loggedInUser) {
+    public void setLoggedInUser(UserRemote loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
 }
