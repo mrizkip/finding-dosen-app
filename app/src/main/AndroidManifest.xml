@@ -25,7 +25,13 @@
         <activity android:name=".main.LoginActivity" />
         <activity android:name=".main.RegisterActivity" />
         <activity android:name=".main.ProfilDosenActivity" />
-        <activity android:name=".main.MyProfileActivity"></activity>
+        <activity android:name=".main.MyProfileActivity" />
+        <activity android:name=".main.EditProfileActivity" />
+        <activity android:name=".main.PosisiDosenActivity" />
+        <activity android:name=".main.MainActivityDosen" />
+        <activity android:name=".main.EditStatusActivity" />
+        <activity android:name=".main.StatusAktifActivity" />
+        <activity android:name=".main.StatusTidakAktifActivity"></activity>
     </application>
 
 </manifest>

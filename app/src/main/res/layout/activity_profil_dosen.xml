@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.ProfilDosenActivity">
+    tools:context="com.skripsi.mrizk.findingdosen.main.ProfilDosenActivity"
+    android:background="@color/md_white_1000">
 
     <ImageView
         android:id="@+id/profilDosen_imageViewParent"
