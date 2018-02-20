@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.skripsi.mrizk.findingdosen.main.EditStatusActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        android:id="@+id/editStatus_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/editStatus_cardViewStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editStatus_toolbar"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="2dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/editStatus_relativeLayoutStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:id="@+id/editStatus_statusInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status saat ini"
+                android:textColor="@color/colorPrimary"
+                />
+
+            <RadioGroup
+                android:id="@+id/editStatus_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editStatus_statusInfo"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:padding="5dp"
+                    android:text="Ada"
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+                    android:drawableTint="@color/md_green_500"
+                    android:drawablePadding="30px"
+                    android:background="@drawable/custom_radio_button_background"
+                    android:button="@android:color/transparent"
+                    />
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="5dp"
+                    android:text="Tidak Ada"
+                    android:textColor="@color/primaryText"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_do_not_disturb_on_black_24dp"
+                    android:drawableTint="@color/md_red_500"
+                    android:drawablePadding="30px"
+                    android:background="@drawable/custom_radio_button_background"
+                    android:button="@android:color/transparent"
+                    />
+            </RadioGroup>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
