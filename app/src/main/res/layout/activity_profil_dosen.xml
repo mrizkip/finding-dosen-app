@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skripsi.mrizk.findingdosen.main.ProfilDosenActivity"
+    android:background="@color/md_white_1000">
+
+    <ImageView
+        android:id="@+id/profilDosen_imageViewParent"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:src="@drawable/line_divider"
+        android:layout_alignParentTop="true"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilDosen_imageViewProfile"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:src="@drawable/ic_person_outline_black_24dp"
+        app:civ_border_color="@color/md_grey_800"
+        app:civ_border_width="2dp" />
+
+    <include layout="@layout/view_toolbar_transparent" />
+
+    <TextView
+        android:id="@+id/profilDosen_textNamaDosen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profilDosen_imageViewProfile"
+        android:layout_marginTop="25dp"
+        android:text="Nama Dosen"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_white_1000"
+        />
+
+    <TextView
+        android:id="@+id/profilDosen_textJabatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profilDosen_textNamaDosen"
+        android:text="Jabatan"
+        android:textSize="14sp"
+        android:textColor="@color/md_white_1000"
+        android:textAlignment="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/profilDosen_imageViewParent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilDosen_iconSchool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_school_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconSchool"
+                android:layout_marginTop="20dp"
+                android:text="Sedang Mengajar"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textKeterangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconSchool"
+                android:layout_below="@+id/profilDosen_textStatus"
+                android:text="di mana?"
+                android:textColor="@color/md_grey_800"
+                />
+
+            <Button
+                android:id="@+id/profilDosen_buttonLihatPeta"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/profilDosen_iconSchool"
+                android:layout_below="@+id/profilDosen_textKeterangan"
+                android:text="Lihat pada peta"
+                android:textSize="12sp"
+                android:textColor="@color/md_white_1000"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:backgroundTint="@color/primary"
+                android:drawableTint="@color/md_white_1000"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/line_divider"
+                android:layout_below="@+id/profilDosen_buttonLihatPeta"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilDosen_iconCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_credit_card_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textNIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconCard"
+                android:layout_marginTop="10dp"
+                android:text="1234567890"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textViewNIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconCard"
+                android:layout_below="@+id/profilDosen_textNIP"
+                android:text="NIP"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilDosen_iconCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_call_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textNoTelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconCall"
+                android:layout_marginTop="10dp"
+                android:text="081234567890"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textViewTelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconCall"
+                android:layout_below="@+id/profilDosen_textNoTelp"
+                android:text="Nomor Telpon"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilDosen_iconEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_email_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconEmail"
+                android:layout_marginTop="10dp"
+                android:text="youremail@mail.com"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/profilDosen_textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profilDosen_iconEmail"
+                android:layout_below="@+id/profilDosen_textEmail"
+                android:text="Email"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.skripsi.mrizk.findingdosen.main.MyProfileActivity"
+    android:background="@color/md_white_1000">
+
+    <ImageView
+        android:id="@+id/myProfile_imageViewParent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/line_divider"
+        android:layout_alignParentTop="true"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/myProfile_imageViewProfile"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:src="@drawable/ic_person_outline_black_24dp"
+        app:civ_border_color="@color/md_grey_800"
+        app:civ_border_width="2dp" />
+
+    <include layout="@layout/view_toolbar_transparent" />
+
+    <TextView
+        android:id="@+id/myProfile_textNamaDosen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myProfile_imageViewProfile"
+        android:layout_marginTop="25dp"
+        android:text="Nama"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_white_1000"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/myProfile_imageViewParent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/myProfile_iconCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_credit_card_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textNIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconCard"
+                android:layout_marginTop="10dp"
+                android:text="1234567890"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textViewNIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconCard"
+                android:layout_below="@+id/myProfile_textNIP"
+                android:text="NIP"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/myProfile_iconCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_call_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textNoTelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconCall"
+                android:layout_marginTop="10dp"
+                android:text="081234567890"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textViewTelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconCall"
+                android:layout_below="@+id/myProfile_textNoTelp"
+                android:text="Nomor Telpon"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/myProfile_iconEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_email_black_24dp"
+                android:tint="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconEmail"
+                android:layout_marginTop="10dp"
+                android:text="youremail@mail.com"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/myProfile_textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/myProfile_iconEmail"
+                android:layout_below="@+id/myProfile_textEmail"
+                android:text="Email"
+                android:textColor="@color/md_grey_800"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

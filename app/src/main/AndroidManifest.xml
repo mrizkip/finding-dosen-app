@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skripsi.mrizk.findingdosen">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +15,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".main.LoginActivity" />
+        <activity android:name=".main.RegisterActivity" />
+        <activity android:name=".main.ProfilDosenActivity" />
+        <activity android:name=".main.MyProfileActivity" />
+        <activity android:name=".main.EditProfileActivity" />
+        <activity android:name=".main.PosisiDosenActivity" />
+        <activity android:name=".main.MainActivityDosen" />
+        <activity android:name=".main.EditStatusActivity" />
+        <activity android:name=".main.StatusAktifActivity" />
+        <activity android:name=".main.StatusTidakAktifActivity"></activity>
     </application>
 
 </manifest>

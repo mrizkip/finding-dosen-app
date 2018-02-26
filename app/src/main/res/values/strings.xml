@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FINDING DOSEN</string>
 
-    <string-array name="jenis_identitas" >
+    <string-array name="jenis_identitas">
         <item>NIM</item>
         <item>NIP</item>
     </string-array>
