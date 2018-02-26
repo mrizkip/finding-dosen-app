@@ -4,16 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
     tools:context="com.skripsi.mrizk.findingdosen.main.MainActivity">
 
     <include
         android:id="@+id/mainActivity_toolbar"
         layout="@layout/view_toolbar"></include>
 
+    <android.support.v7.widget.SearchView
+        android:id="@+id/mainActivity_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainActivity_toolbar"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mainActivity_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/mainActivity_toolbar"/>
+        android:layout_below="@+id/mainActivity_searchView"/>
 
 </RelativeLayout>
