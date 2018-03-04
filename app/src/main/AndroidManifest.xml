@@ -31,7 +31,8 @@
         <activity android:name=".main.MainActivityDosen" />
         <activity android:name=".main.EditStatusActivity" />
         <activity android:name=".main.StatusAktifActivity" />
-        <activity android:name=".main.StatusTidakAktifActivity"></activity>
+        <activity android:name=".main.StatusTidakAktifActivity" />
+        <activity android:name=".main.SplashScreenActivity"></activity>
     </application>
 
 </manifest>
