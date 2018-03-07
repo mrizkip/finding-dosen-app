@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.MyProfileActivity"
+    tools:context="com.skripsi.mrizk.findingdosen.main.myProfile.MyProfileActivity"
     android:background="@color/md_white_1000">
 
     <ImageView
@@ -26,13 +26,15 @@
         app:civ_border_color="@color/md_grey_800"
         app:civ_border_width="2dp" />
 
-    <include layout="@layout/view_toolbar_transparent" />
+    <include
+        android:id="@+id/myProfile_toolbar"
+        layout="@layout/view_toolbar_transparent" />
 
     <TextView
-        android:id="@+id/myProfile_textNamaDosen"
+        android:id="@+id/myProfile_textNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/myProfile_imageViewProfile"
+        android:layout_below="@id/myProfile_imageViewProfile"
         android:layout_marginTop="25dp"
         android:text="Nama"
         android:textAlignment="center"
@@ -44,7 +46,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/myProfile_imageViewParent"
+        android:layout_below="@id/myProfile_imageViewParent"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -65,10 +67,10 @@
                 />
 
             <TextView
-                android:id="@+id/myProfile_textNIP"
+                android:id="@+id/myProfile_textNoIdentitas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconCard"
+                android:layout_toRightOf="@id/myProfile_iconCard"
                 android:layout_marginTop="10dp"
                 android:text="1234567890"
                 android:textColor="@color/primaryText"
@@ -76,11 +78,11 @@
                 />
 
             <TextView
-                android:id="@+id/myProfile_textViewNIP"
+                android:id="@+id/myProfile_textViewJenisIdentitas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconCard"
-                android:layout_below="@+id/myProfile_textNIP"
+                android:layout_toRightOf="@id/myProfile_iconCard"
+                android:layout_below="@+id/myProfile_textNoIdentitas"
                 android:text="NIP"
                 android:textColor="@color/md_grey_800"
                 />
@@ -106,7 +108,7 @@
                 android:id="@+id/myProfile_textNoTelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconCall"
+                android:layout_toRightOf="@id/myProfile_iconCall"
                 android:layout_marginTop="10dp"
                 android:text="081234567890"
                 android:textColor="@color/primaryText"
@@ -117,8 +119,8 @@
                 android:id="@+id/myProfile_textViewTelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconCall"
-                android:layout_below="@+id/myProfile_textNoTelp"
+                android:layout_toRightOf="@id/myProfile_iconCall"
+                android:layout_below="@id/myProfile_textNoTelp"
                 android:text="Nomor Telpon"
                 android:textColor="@color/md_grey_800"
                 />
@@ -145,7 +147,7 @@
                 android:id="@+id/myProfile_textEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconEmail"
+                android:layout_toRightOf="@id/myProfile_iconEmail"
                 android:layout_marginTop="10dp"
                 android:text="youremail@mail.com"
                 android:textColor="@color/primaryText"
@@ -156,8 +158,8 @@
                 android:id="@+id/myProfile_textViewEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/myProfile_iconEmail"
-                android:layout_below="@+id/myProfile_textEmail"
+                android:layout_toRightOf="@id/myProfile_iconEmail"
+                android:layout_below="@id/myProfile_textEmail"
                 android:text="Email"
                 android:textColor="@color/md_grey_800"
                 />

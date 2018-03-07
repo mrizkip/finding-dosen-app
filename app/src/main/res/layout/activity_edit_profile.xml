@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.EditProfileActivity"
+    tools:context="com.skripsi.mrizk.findingdosen.main.editProfil.EditProfileActivity"
     android:background="@color/md_white_1000">
 
     <include
@@ -91,7 +91,7 @@
         />
 
     <TextView
-        android:id="@+id/editProfile_textNoIdentitas"
+        android:id="@+id/editProfile_textPasswordBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password Baru"
@@ -103,10 +103,10 @@
         />
 
     <EditText
-        android:id="@+id/editProfile_noIdentitas"
+        android:id="@+id/editProfile_passwordBaru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_textNoIdentitas"
+        android:layout_below="@+id/editProfile_textPasswordBaru"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
@@ -121,7 +121,7 @@
         android:id="@+id/editProfile_buttoneditProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_noIdentitas"
+        android:layout_below="@+id/editProfile_passwordBaru"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"

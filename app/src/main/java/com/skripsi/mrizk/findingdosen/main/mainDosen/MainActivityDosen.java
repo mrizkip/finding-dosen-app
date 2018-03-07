@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen.main;
+package com.skripsi.mrizk.findingdosen.main.mainDosen;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +24,6 @@ public class MainActivityDosen extends AppCompatActivity {
     @BindView(R.id.mainDosen_textJabatan) TextView jabatanDosen;
     @BindView(R.id.mainDosen_textStatus) TextView statusDosen;
     @BindView(R.id.mainDosen_textKeterangan) TextView statusKeterangan;
-    @BindView(R.id.mainDosen_textEditInfo) TextView textEditInfo;
     @BindView(R.id.mainDosen_editStatus) ImageView editStatus;
     @BindView(R.id.mainDosen_textNIP) TextView nipDosen;
     @BindView(R.id.mainDosen_textNoTelp) TextView noTelpDosen;
@@ -39,7 +38,10 @@ public class MainActivityDosen extends AppCompatActivity {
         ButterKnife.bind(this);
 
         if (toolbar != null) setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) actionBar = getSupportActionBar();
+        if (getSupportActionBar() != null) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("FINDING DOSEN");
+        }
 
 
     }

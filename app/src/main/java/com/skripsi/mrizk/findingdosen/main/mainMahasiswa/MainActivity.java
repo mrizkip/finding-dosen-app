@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen.main;
+package com.skripsi.mrizk.findingdosen.main.mainMahasiswa;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -51,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        if (toolbar != null) setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("FINDING DOSEN");
+        }
 
         Dexter.withActivity(this)
                 .withPermissions(

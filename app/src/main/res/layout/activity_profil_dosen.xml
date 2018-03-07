@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.ProfilDosenActivity"
+    tools:context="com.skripsi.mrizk.findingdosen.main.profilDosen.ProfilDosenActivity"
     android:background="@color/md_white_1000">
 
     <ImageView
@@ -26,7 +26,9 @@
         app:civ_border_color="@color/md_grey_800"
         app:civ_border_width="2dp" />
 
-    <include layout="@layout/view_toolbar_transparent" />
+    <include
+        android:id="@+id/profilDosen_toolbar"
+        layout="@layout/view_toolbar_transparent" />
 
     <TextView
         android:id="@+id/profilDosen_textNamaDosen"

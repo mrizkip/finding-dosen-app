@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.EditStatusActivity">
+    tools:context="com.skripsi.mrizk.findingdosen.main.editStatus.EditStatusActivity">
 
     <include
         android:id="@+id/editStatus_toolbar"
@@ -35,7 +35,7 @@
                 />
 
             <RadioGroup
-                android:id="@+id/editStatus_radio"
+                android:id="@+id/editStatus_radioGroupStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editStatus_statusInfo"
@@ -109,7 +109,7 @@
                 >
 
                 <RadioGroup
-                    android:id="@+id/editStatus_radioGroup"
+                    android:id="@+id/editStatus_radioGroupKeterangan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <RadioButton

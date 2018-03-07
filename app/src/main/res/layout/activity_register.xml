@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_white_1000"
-    tools:context="com.skripsi.mrizk.findingdosen.main.RegisterActivity">
+    tools:context="com.skripsi.mrizk.findingdosen.main.register.RegisterActivity">
 
     <include
         android:id="@+id/register_toolbar"
@@ -114,7 +114,7 @@
                 android:background="@drawable/button_border">
 
                 <Spinner
-                    android:id="@+id/register_spinner"
+                    android:id="@+id/register_spinner_jenisIdentitas"
                     style="@style/Widget.AppCompat.DropDownItem.Spinner"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
