@@ -37,5 +37,10 @@ public class MainActivityDosen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dosen);
         ButterKnife.bind(this);
+
+        if (toolbar != null) setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) actionBar = getSupportActionBar();
+
+
     }
 }
