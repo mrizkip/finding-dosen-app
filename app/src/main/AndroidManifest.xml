@@ -16,11 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main.mainMahasiswa.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".main.login.LoginActivity" />
         <activity android:name=".main.register.RegisterActivity" />
@@ -32,7 +27,13 @@
         <activity android:name=".main.editStatus.EditStatusActivity" />
         <activity android:name=".main.StatusAktifActivity" />
         <activity android:name=".main.StatusTidakAktifActivity" />
-        <activity android:name=".main.splashScreen.SplashScreenActivity"></activity>
+        <activity android:name=".main.splashScreen.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
