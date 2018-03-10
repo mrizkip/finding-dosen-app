@@ -1,38 +1,38 @@
 package com.skripsi.mrizk.findingdosen.repository;
 
+import android.util.Log;
+
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginResponse;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
 
 /**
  * Created by mrizk on 08/03/2018.
  */
 
-public class LoginRepository {
+public class UserRepository {
+    private static final String TAG = "UserRepository";
 
     private final ILoginRequest iLoginRequest;
     private final LoginResponseToUser loginResponseToUser;
-    private final LoginRequest loginRequest;
 
     @Inject
-    public LoginRepository(ILoginRequest iLoginRequest, LoginResponseToUser loginResponseToUser, LoginRequest loginRequest) {
+    public UserRepository(ILoginRequest iLoginRequest, LoginResponseToUser loginResponseToUser) {
         this.iLoginRequest = iLoginRequest;
         this.loginResponseToUser = loginResponseToUser;
-        this.loginRequest = loginRequest;
     }
 
-    public Observable<User> login() {
+    public Observable<User> loginUser(LoginRequest loginRequest) {
         return iLoginRequest.login(loginRequest)
                 .toObservable()
                 .map(loginResponseToUser::transform)

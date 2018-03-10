@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by mrizk on 08/03/2018.
  */
 
-public class ErrorMessageRemote {
+public class ErrorUnauthorizedRemote {
 
     @SerializedName("message")
     @Expose

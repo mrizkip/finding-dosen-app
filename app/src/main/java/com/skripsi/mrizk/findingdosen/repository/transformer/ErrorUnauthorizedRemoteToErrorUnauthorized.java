@@ -1,17 +1,19 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.ErrorMessage;
-import com.skripsi.mrizk.findingdosen.repository.entity.api.ErrorMessageRemote;
+import com.skripsi.mrizk.findingdosen.repository.entity.ErrorUnauthorized;
+import com.skripsi.mrizk.findingdosen.repository.entity.api.ErrorUnauthorizedRemote;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 
 /**
  * Created by mrizk on 08/03/2018.
  */
 
-public class ErrorMessageRemoteToErrorMessage extends BaseLayerDataTransformer<ErrorMessageRemote, ErrorMessage> {
+public class ErrorUnauthorizedRemoteToErrorUnauthorized extends BaseLayerDataTransformer<ErrorUnauthorizedRemote, ErrorUnauthorized> {
     @Override
-    public ErrorMessage transform(ErrorMessageRemote from) {
-        ErrorMessage error = new ErrorMessage();
-        return null;
+    public ErrorUnauthorized transform(ErrorUnauthorizedRemote from) {
+        ErrorUnauthorized error = new ErrorUnauthorized();
+        error.setMessage(from.getMessage());
+        error.setStatus(from.getStatus());
+        return error;
     }
 }

@@ -3,10 +3,7 @@ package com.skripsi.mrizk.findingdosen.repository.datasource.api;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginResponse;
 
-import org.json.JSONObject;
-
-import io.reactivex.Observable;
-import retrofit2.Response;
+import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
@@ -17,5 +14,5 @@ import retrofit2.http.POST;
 public interface ILoginRequest {
 
     @POST("login")
-    Observable<Response<LoginResponse>> login(@Body LoginRequest loginRequest);
+    Single<LoginResponse> login(@Body LoginRequest loginRequest);
 }

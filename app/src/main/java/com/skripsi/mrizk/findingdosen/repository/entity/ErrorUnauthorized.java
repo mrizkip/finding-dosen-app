@@ -4,7 +4,7 @@ package com.skripsi.mrizk.findingdosen.repository.entity;
  * Created by mrizk on 08/03/2018.
  */
 
-public class ErrorMessage {
+public class ErrorUnauthorized {
 
     private String message;
     private String status;
