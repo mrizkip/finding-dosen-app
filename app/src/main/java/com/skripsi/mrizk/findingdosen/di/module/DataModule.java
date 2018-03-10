@@ -2,12 +2,16 @@ package com.skripsi.mrizk.findingdosen.di.module;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.skripsi.mrizk.findingdosen.repository.UserRepository;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
+import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -46,7 +50,10 @@ public class DataModule {
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.addInterceptor(interceptor);
 
         return builder.build();
     }
@@ -64,5 +71,10 @@ public class DataModule {
                 .build();
     }
 
+    @Provides
+    @Singleton
+    public ILoginRequest provideLoginRequest(Retrofit retrofit) {
+        return retrofit.create(ILoginRequest.class);
+    }
 
 }

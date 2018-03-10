@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.skripsi.mrizk.findingdosen.main.login.LoginActivity"
     android:background="@color/colorPrimary"
+    android:id="@+id/login_layout"
     >
 
     <TextView
@@ -41,6 +42,7 @@
         android:backgroundTint="@color/md_white_1000"
         android:hint="Email"
         android:textColorHint="@color/md_grey_100"
+        android:textColor="@color/md_white_1000"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
@@ -48,7 +50,7 @@
         android:drawablePadding="10dp"
         android:maxLines="1"
         android:imeOptions="actionNext"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:nextFocusDown="@id/login_password"
         />
 
@@ -61,6 +63,7 @@
         android:backgroundTint="@color/md_white_1000"
         android:hint="Password"
         android:textColorHint="@color/md_grey_100"
+        android:textColor="@color/md_white_1000"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
@@ -68,8 +71,7 @@
         android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:imeOptions="actionGo"
-        android:nextFocusDown="@id/login_buttonLogin"
+        android:imeOptions="actionDone"
         />
 
     <Button
@@ -84,7 +86,8 @@
         android:backgroundTint="@color/colorAccent"
         android:text="LOGIN"
         android:textStyle="bold"
-        android:textColor="@color/md_white_1000" />
+        android:textColor="@color/md_white_1000"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/login_register"
@@ -98,6 +101,5 @@
         android:text="Belum punya akun? Daftar sekarang"
         android:textColor="@color/md_white_1000"
         android:textSize="14sp" />
-
 
 </RelativeLayout>

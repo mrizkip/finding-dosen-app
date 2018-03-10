@@ -1,6 +1,9 @@
 package com.skripsi.mrizk.findingdosen.di.component;
 
 import com.skripsi.mrizk.findingdosen.di.module.MapperModule;
+import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteToErrorMessage;
+import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
+import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 
 import javax.inject.Singleton;
 
@@ -12,4 +15,11 @@ import dagger.Component;
 @Singleton
 @Component(modules = {MapperModule.class})
 public interface IMapperComponent {
+
+    LoginResponseToUser getLoginResponseToUser();
+
+    ErrorUnauthorizedRemoteToErrorUnauthorized getErrorUnauthorizedRemoteToErrorUnauthorized();
+
+    ErrorMessageRemoteToErrorMessage getErrorMessageRemoteToErrorMessage();
+
 }
