@@ -1,8 +1,5 @@
 package com.skripsi.mrizk.findingdosen.repository.entity.api;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 /**
  * Created by mrizk on 18/01/2018.
  */

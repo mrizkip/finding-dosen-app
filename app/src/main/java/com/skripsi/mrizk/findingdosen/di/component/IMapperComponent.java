@@ -4,6 +4,7 @@ import com.skripsi.mrizk.findingdosen.di.module.MapperModule;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteToErrorMessage;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
 
 import javax.inject.Singleton;
 
@@ -21,5 +22,7 @@ public interface IMapperComponent {
     ErrorUnauthorizedRemoteToErrorUnauthorized getErrorUnauthorizedRemoteToErrorUnauthorized();
 
     ErrorMessageRemoteToErrorMessage getErrorMessageRemoteToErrorMessage();
+
+    RegisterResponseToRegister getRegisterResponseToRegister();
 
 }

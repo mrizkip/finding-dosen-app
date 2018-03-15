@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.skripsi.mrizk.findingdosen.repository.UserRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 
 import javax.inject.Singleton;
@@ -75,6 +76,12 @@ public class DataModule {
     @Singleton
     public ILoginRequest provideLoginRequest(Retrofit retrofit) {
         return retrofit.create(ILoginRequest.class);
+    }
+
+    @Provides
+    @Singleton
+    public IRegisterRequest provideRegisterRequest(Retrofit retrofit) {
+        return retrofit.create(IRegisterRequest.class);
     }
 
 }

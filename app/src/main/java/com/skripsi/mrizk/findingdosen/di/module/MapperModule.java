@@ -4,6 +4,7 @@ import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteT
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 import com.skripsi.mrizk.findingdosen.repository.transformer.MyProfileResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
 
 import javax.inject.Singleton;
 
@@ -32,6 +33,12 @@ public class MapperModule {
     @Singleton
     ErrorUnauthorizedRemoteToErrorUnauthorized provideErrorUnauthorizedRemoteToErrorUnauthorized() {
         return new ErrorUnauthorizedRemoteToErrorUnauthorized();
+    }
+
+    @Provides
+    @Singleton
+    RegisterResponseToRegister provideRegisterResponseToRegister() {
+        return new RegisterResponseToRegister();
     }
 
 }
