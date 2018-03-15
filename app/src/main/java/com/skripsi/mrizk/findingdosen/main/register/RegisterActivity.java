@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
@@ -41,6 +42,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText noIdentitas;
     @BindView(R.id.register_buttonRegister)
     Button registerButton;
+    @BindView(R.id.register_login)
+    TextView login;
     @BindView(R.id.register_toolbar)
     Toolbar toolbar;
     ActionBar actionBar;
@@ -65,6 +68,9 @@ public class RegisterActivity extends AppCompatActivity {
                 getRegisterViewModelFactory()).get(RegisterViewModel.class);
 
         registerButton.setOnClickListener(v -> register());
+
+        login.setOnClickListener(v -> finish());
+
     }
 
     private void register() {
@@ -90,6 +96,8 @@ public class RegisterActivity extends AppCompatActivity {
             // call registerUser from ViewModel
             registerViewModel.registerUser(emailUser, passwordUser, namaUser, jenisIdentitasUser, noIdentitasUser, noTelponUser)
                     .observe(this, registerStatus -> {
+                        progressBar.setVisibility(View.GONE);
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         if (registerStatus) {
                             Toast.makeText(this, "Pendaftaran Berhasil!", Toast.LENGTH_SHORT).show();
                             finish(); // Finish activity and navigate to login activity
