@@ -35,7 +35,6 @@ public class LoginViewModel extends ViewModel {
     private final ErrorMessageRemoteToErrorMessage errorMessageRemoteToErrorMessage;
     private MutableLiveData<User> user;
     private MutableLiveData<Boolean> loginStatus;
-    private MutableLiveData<String> error;
 
     public LoginViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -56,7 +55,6 @@ public class LoginViewModel extends ViewModel {
                     this.user.postValue(user1);
                 }, throwable -> {
                     this.loginStatus.postValue(false);
-                    Log.d(TAG, "login: " + throwable.toString());
                 });
 
         return loginStatus;
