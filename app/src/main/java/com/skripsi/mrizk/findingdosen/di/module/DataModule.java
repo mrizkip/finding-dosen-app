@@ -1,11 +1,13 @@
 package com.skripsi.mrizk.findingdosen.di.module;
 
+import android.content.SharedPreferences;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.skripsi.mrizk.findingdosen.repository.UserRepository;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IFetchDosenRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
-import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
 
 import javax.inject.Singleton;
 
@@ -82,6 +84,18 @@ public class DataModule {
     @Singleton
     public IRegisterRequest provideRegisterRequest(Retrofit retrofit) {
         return retrofit.create(IRegisterRequest.class);
+    }
+
+    @Provides
+    @Singleton
+    public SharedPrefsUserRepository provideSharedPrefsUserRepository() {
+        return new SharedPrefsUserRepository();
+    }
+
+    @Provides
+    @Singleton
+    public IFetchDosenRequest provideFetchDosenRequest(Retrofit retrofit) {
+        return retrofit.create(IFetchDosenRequest.class);
     }
 
 }

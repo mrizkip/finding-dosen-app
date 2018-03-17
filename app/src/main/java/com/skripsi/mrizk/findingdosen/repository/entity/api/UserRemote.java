@@ -27,6 +27,9 @@ public class UserRemote {
     @SerializedName("no_identitas")
     @Expose
     private String noIdentitas;
+    @SerializedName("no_telpon")
+    @Expose
+    private String noTelpon;
     @SerializedName("role")
     @Expose
     private String role;
@@ -77,6 +80,14 @@ public class UserRemote {
 
     public void setNoIdentitas(String noIdentitas) {
         this.noIdentitas = noIdentitas;
+    }
+
+    public String getNoTelpon() {
+        return noTelpon;
+    }
+
+    public void setNoTelpon(String noTelpon) {
+        this.noTelpon = noTelpon;
     }
 
     public String getRole() {

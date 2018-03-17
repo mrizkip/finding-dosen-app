@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen.repository;
+package com.skripsi.mrizk.findingdosen.repository.datasource.local;
 
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;

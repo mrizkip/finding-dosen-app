@@ -3,6 +3,7 @@ package com.skripsi.mrizk.findingdosen.repository.datasource.api;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.FetchDosenResponse;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -14,5 +15,5 @@ import retrofit2.http.Header;
 public interface IFetchDosenRequest {
 
     @GET("user/fetch_dosen")
-    Observable<Response<FetchDosenResponse>> fetchDosen(@Header("Authorization") String authorization);
+    Single<FetchDosenResponse> fetchDosen(@Header("Authorization") String authorization);
 }

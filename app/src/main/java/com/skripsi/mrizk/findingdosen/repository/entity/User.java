@@ -12,6 +12,7 @@ public class User {
     private String nama;
     private String jenisIdentitas;
     private String noIdentitas;
+    private String noTelpon;
     private String role;
     private String token;
 
@@ -77,5 +78,13 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getNoTelpon() {
+        return noTelpon;
+    }
+
+    public void setNoTelpon(String noTelpon) {
+        this.noTelpon = noTelpon;
     }
 }

@@ -25,6 +25,7 @@ public class LoginResponseToUser extends BaseLayerDataTransformer<LoginResponse,
         user.setNama(from.getLoggedInUser().getNama());
         user.setJenisIdentitas(from.getLoggedInUser().getJenisIdentitas());
         user.setNoIdentitas(from.getLoggedInUser().getNoIdentitas());
+        user.setNoTelpon(from.getLoggedInUser().getNoTelpon());
         user.setRole(from.getLoggedInUser().getRole());
         user.setToken(from.getToken());
         return user;
