@@ -145,7 +145,7 @@
                 android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
                 android:drawablePadding="5dp"
                 android:hint="1234567890"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:inputType="number"
                 android:maxLines="1" />
 

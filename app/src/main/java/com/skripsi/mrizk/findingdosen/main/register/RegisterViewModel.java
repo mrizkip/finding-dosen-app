@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import com.skripsi.mrizk.findingdosen.repository.UserRepository;
+import com.skripsi.mrizk.findingdosen.repository.datasource.local.UserRepository;
 import com.skripsi.mrizk.findingdosen.repository.entity.Register;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.RegisterRequest;
 

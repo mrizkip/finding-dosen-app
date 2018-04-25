@@ -76,10 +76,9 @@ public class LoginActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
-            // call loginUser method from ViewModel
+            // loginUser
             loginViewModel.loginUser(emailUser, passwordUser).observe(this, loginStatus -> {
                 progressBar.setVisibility(View.GONE);
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 if (loginStatus) {
                     Toast.makeText(this, "Login Berhasil! ", Toast.LENGTH_SHORT).show();
                     navigateToMainActivity();
@@ -92,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void navigateToMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Log.d(TAG, "navigateToMainActivity: wtf");
         startActivity(intent);
         finish();
     }

@@ -29,7 +29,7 @@
         android:layout_below="@+id/login_judul"
         android:layout_margin="20dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_arrow_drop_down_black_24dp"
         android:id="@+id/login_logo"
         />
 

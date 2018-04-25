@@ -1,10 +1,13 @@
 package com.skripsi.mrizk.findingdosen.di.module;
 
+import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
+import com.skripsi.mrizk.findingdosen.repository.transformer.DosenListResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteToErrorMessage;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
+import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
-import com.skripsi.mrizk.findingdosen.repository.transformer.MyProfileResponseToUser;
 import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
+import com.skripsi.mrizk.findingdosen.repository.transformer.UserRemoteToUser;
 
 import javax.inject.Singleton;
 
@@ -40,5 +43,24 @@ public class MapperModule {
     RegisterResponseToRegister provideRegisterResponseToRegister() {
         return new RegisterResponseToRegister();
     }
+
+    @Provides
+    @Singleton
+    UserRemoteToUser provideUserRemoteToUser() {
+        return new UserRemoteToUser();
+    }
+
+    @Provides
+    @Singleton
+    DosenListResponseToDosenAdapter provideDosenListResponseToDosenAdapter() {
+        return new DosenListResponseToDosenAdapter();
+    }
+
+    @Provides
+    @Singleton
+    FetchDosenResponseToDosenAdapter provideFetchDosenResponseToUser(DosenListResponseToDosenAdapter dosenListResponseToDosenAdapter) {
+        return new FetchDosenResponseToDosenAdapter(dosenListResponseToDosenAdapter);
+    }
+
 
 }
