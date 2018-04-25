@@ -16,13 +16,13 @@ public class FetchDosenResponse {
 
     @SerializedName("data")
     @Expose
-    private List<UserRemote> data;
+    private List<DosenListResponse> data;
 
-    public List<UserRemote> getData() {
+    public List<DosenListResponse> getData() {
         return data;
     }
 
-    public void setData(List<UserRemote> data) {
+    public void setData(List<DosenListResponse> data) {
         this.data = data;
     }
 }

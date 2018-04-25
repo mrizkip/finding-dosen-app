@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void navigateToMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Log.d(TAG, "navigateToMainActivity: wtf");
         startActivity(intent);
         finish();
     }

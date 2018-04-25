@@ -1,9 +1,10 @@
 package com.skripsi.mrizk.findingdosen.di.component;
 
 import com.skripsi.mrizk.findingdosen.di.module.MapperModule;
+import com.skripsi.mrizk.findingdosen.repository.transformer.DosenListResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteToErrorMessage;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
-import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
 import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
 import com.skripsi.mrizk.findingdosen.repository.transformer.UserRemoteToUser;
@@ -29,6 +30,8 @@ public interface IMapperComponent {
 
     UserRemoteToUser getUserRemoteToUser();
 
-    FetchDosenResponseToUser getFetchDosenResponseToUser();
+    FetchDosenResponseToDosenAdapter getFetchDosenResponseToUser();
+
+    DosenListResponseToDosenAdapter getDosenListResponseToDosenAdapter();
 
 }

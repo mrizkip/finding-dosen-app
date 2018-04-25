@@ -14,6 +14,6 @@ import retrofit2.http.Header;
 
 public interface IFetchDosenRequest {
 
-    @GET("user/fetch_dosen")
+    @GET("user/fetch_dosens")
     Single<FetchDosenResponse> fetchDosen(@Header("Authorization") String authorization);
 }

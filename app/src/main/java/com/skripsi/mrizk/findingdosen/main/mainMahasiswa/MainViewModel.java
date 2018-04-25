@@ -1,13 +1,16 @@
 package com.skripsi.mrizk.findingdosen.main.mainMahasiswa;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
 import com.skripsi.mrizk.findingdosen.repository.entity.User;
+import com.skripsi.mrizk.findingdosen.repository.entity.api.DosenListResponse;
 
 import java.util.List;
 
@@ -19,30 +22,47 @@ import javax.inject.Inject;
 
 public class MainViewModel extends ViewModel {
 
-    private final DosenRepository dosenRepository;
-    private final SharedPrefsUserRepository sharedPrefsUserRepository;
-    private MutableLiveData<List<User>> listDosen;
+    private static final String TAG = "MainViewModel";
 
-    public MainViewModel(DosenRepository dosenRepository, SharedPrefsUserRepository sharedPrefsUserRepository) {
+    private final DosenRepository dosenRepository;
+    private MutableLiveData<List<DosenAdapter>> listDosen;
+
+    public MainViewModel(DosenRepository dosenRepository) {
         this.dosenRepository = dosenRepository;
-        this.sharedPrefsUserRepository = sharedPrefsUserRepository;
+        listDosen = new MutableLiveData<>();
+
+        fetchDosen();
     }
+
+    private void fetchDosen() {
+        dosenRepository.getListDosen()
+                .subscribe(dosenList -> {
+                    this.listDosen.postValue(dosenList);
+                    Log.d(TAG, "fetchDosen: success");
+                }, throwable -> {
+                    Log.d(TAG, "fetchDosen: error");
+                });
+    }
+
+
+    public LiveData<List<DosenAdapter>> getDosenList() {
+        return listDosen;
+    }
+
 
     public static class MainViewModelFactory implements ViewModelProvider.Factory {
 
         private final DosenRepository dosenRepository;
-        private final SharedPrefsUserRepository sharedPrefsUserRepository;
 
         @Inject
-        public MainViewModelFactory(DosenRepository dosenRepository, SharedPrefsUserRepository sharedPrefsUserRepository) {
+        public MainViewModelFactory(DosenRepository dosenRepository) {
             this.dosenRepository = dosenRepository;
-            this.sharedPrefsUserRepository = sharedPrefsUserRepository;
         }
 
         @NonNull
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-            return (T) new MainViewModel(dosenRepository, sharedPrefsUserRepository);
+            return (T) new MainViewModel(dosenRepository);
         }
     }
 

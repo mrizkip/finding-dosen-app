@@ -2,6 +2,7 @@ package com.skripsi.mrizk.findingdosen.di.component;
 
 import com.skripsi.mrizk.findingdosen.di.module.DataModule;
 import com.skripsi.mrizk.findingdosen.main.login.LoginViewModel;
+import com.skripsi.mrizk.findingdosen.main.mainMahasiswa.MainViewModel;
 import com.skripsi.mrizk.findingdosen.main.register.RegisterViewModel;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
@@ -27,5 +28,7 @@ public interface IDataComponent {
     RegisterViewModel.RegisterViewModelFactory getRegisterViewModelFactory();
 
     DosenRepository getDosenRepository();
+
+    MainViewModel.MainViewModelFactory getMainViewModelFactory();
 
 }
