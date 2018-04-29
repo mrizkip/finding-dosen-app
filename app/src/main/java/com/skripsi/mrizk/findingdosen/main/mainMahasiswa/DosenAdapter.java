@@ -2,12 +2,14 @@ package com.skripsi.mrizk.findingdosen.main.mainMahasiswa;
 
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import com.mikepenz.materialize.holder.StringHolder;
 import com.skripsi.mrizk.findingdosen.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -66,6 +68,8 @@ public class DosenAdapter extends AbstractItem<DosenAdapter, DosenAdapter.ViewHo
 
     protected static class ViewHolder extends FastAdapter.ViewHolder<DosenAdapter> {
 
+        @BindView(R.id.listDosen_profileImage)
+        ImageView profileImage;
         @BindView(R.id.listDosen_nama)
         TextView nama;
         @BindView(R.id.listDosen_hadir)
@@ -78,9 +82,10 @@ public class DosenAdapter extends AbstractItem<DosenAdapter, DosenAdapter.ViewHo
 
         @Override
         public void bindView(DosenAdapter item, List<Object> payloads) {
+            Picasso.get().load("file:///android_asset/profile-placeholder.png").resize(72,72).centerCrop().into(profileImage);
             nama.setText(item.getNamaDosen());
             hadir.setText(item.getKehadiranDosen());
-            if (item.getKehadiranDosen().equalsIgnoreCase("Hadir")) {
+            if (item.getKehadiranDosen().equalsIgnoreCase("Aktif")) {
                 hadir.setBackgroundResource(R.drawable.label_hadir);
             } else {
                 hadir.setBackgroundResource(R.drawable.label_tidak_hadir);
@@ -89,6 +94,7 @@ public class DosenAdapter extends AbstractItem<DosenAdapter, DosenAdapter.ViewHo
 
         @Override
         public void unbindView(DosenAdapter item) {
+            profileImage.setImageDrawable(null);
             nama.setText(null);
             hadir.setText(null);
         }

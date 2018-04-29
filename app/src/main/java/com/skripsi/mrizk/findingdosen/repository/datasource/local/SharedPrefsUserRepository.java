@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
-import com.skripsi.mrizk.findingdosen.repository.entity.User;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 
 import javax.inject.Inject;
 

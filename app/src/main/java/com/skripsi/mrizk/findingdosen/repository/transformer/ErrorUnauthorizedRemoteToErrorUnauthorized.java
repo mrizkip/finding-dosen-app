@@ -1,6 +1,6 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.ErrorUnauthorized;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.ErrorUnauthorized;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.ErrorUnauthorizedRemote;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 

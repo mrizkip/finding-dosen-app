@@ -31,6 +31,8 @@ import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
 import com.skripsi.mrizk.findingdosen.R;
 import com.skripsi.mrizk.findingdosen.main.login.LoginViewModel;
+import com.skripsi.mrizk.findingdosen.main.profilDosen.ProfilDosenActivity;
+import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
             // on click listener of item
             fastDosenAdapter.withSelectable(true);
             fastDosenAdapter.withOnClickListener((v, adapter, item, position) -> {
-                Toast.makeText(this, String.valueOf(item.getUserID()), Toast.LENGTH_SHORT).show();
+                int idDosen = item.getUserID();
+                Intent intent = new Intent(MainActivity.this, ProfilDosenActivity.class);
+                intent.putExtra("UserID", item.getUserID());
+                startActivity(intent);
                 return true;
             });
         });

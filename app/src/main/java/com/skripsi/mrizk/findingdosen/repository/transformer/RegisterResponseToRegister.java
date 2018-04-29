@@ -1,6 +1,6 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.Register;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.Register;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.RegisterResponse;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 

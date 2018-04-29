@@ -1,13 +1,15 @@
 package com.skripsi.mrizk.findingdosen.di.module;
 
-import android.content.SharedPreferences;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IDosenProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IFetchDosenRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
+import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
+import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
+import com.skripsi.mrizk.findingdosen.repository.transformer.ProfilDosenResponseToProfilDosen;
 
 import javax.inject.Singleton;
 
@@ -75,13 +77,11 @@ public class DataModule {
     }
 
     @Provides
-    @Singleton
     public ILoginRequest provideLoginRequest(Retrofit retrofit) {
         return retrofit.create(ILoginRequest.class);
     }
 
     @Provides
-    @Singleton
     public IRegisterRequest provideRegisterRequest(Retrofit retrofit) {
         return retrofit.create(IRegisterRequest.class);
     }
@@ -96,6 +96,22 @@ public class DataModule {
     @Singleton
     public IFetchDosenRequest provideFetchDosenRequest(Retrofit retrofit) {
         return retrofit.create(IFetchDosenRequest.class);
+    }
+
+    @Provides
+    @Singleton
+    public IDosenProfileRequest provideDosenProfileRequest(Retrofit retrofit) {
+        return retrofit.create(IDosenProfileRequest.class);
+    }
+
+    @Provides
+    @Singleton
+    public DosenRepository provideDosenRepository(IFetchDosenRequest iFetchDosenRequest,
+                                                  FetchDosenResponseToDosenAdapter dosenResponseToDosenAdapter,
+                                                  SharedPrefsUserRepository sharedPrefsUserRepository,
+                                                  ProfilDosenResponseToProfilDosen profilDosenResponseToProfilDosen,
+                                                  IDosenProfileRequest iDosenProfileRequest) {
+        return new DosenRepository(iFetchDosenRequest, dosenResponseToDosenAdapter, sharedPrefsUserRepository, profilDosenResponseToProfilDosen, iDosenProfileRequest);
     }
 
 }

@@ -2,8 +2,8 @@ package com.skripsi.mrizk.findingdosen.repository.datasource.local;
 
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
-import com.skripsi.mrizk.findingdosen.repository.entity.Register;
-import com.skripsi.mrizk.findingdosen.repository.entity.User;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.Register;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.RegisterRequest;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
