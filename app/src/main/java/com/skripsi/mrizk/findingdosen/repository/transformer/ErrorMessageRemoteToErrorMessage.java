@@ -1,6 +1,6 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.ErrorMessage;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.ErrorMessage;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.ErrorMessageRemote;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 

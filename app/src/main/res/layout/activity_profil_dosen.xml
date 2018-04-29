@@ -10,9 +10,10 @@
     <ImageView
         android:id="@+id/profilDosen_imageViewParent"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="200dp"
         android:src="@drawable/line_divider"
         android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
         />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -38,20 +39,9 @@
         android:layout_marginTop="25dp"
         android:text="Nama Dosen"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/md_white_1000"
-        />
-
-    <TextView
-        android:id="@+id/profilDosen_textJabatan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/profilDosen_textNamaDosen"
-        android:text="Jabatan"
-        android:textSize="14sp"
-        android:textColor="@color/md_white_1000"
-        android:textAlignment="center"
         />
 
     <LinearLayout

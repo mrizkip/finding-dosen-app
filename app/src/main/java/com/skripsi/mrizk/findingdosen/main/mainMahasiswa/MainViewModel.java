@@ -8,9 +8,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
-import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
-import com.skripsi.mrizk.findingdosen.repository.entity.User;
-import com.skripsi.mrizk.findingdosen.repository.entity.api.DosenListResponse;
 
 import java.util.List;
 
@@ -38,9 +35,8 @@ public class MainViewModel extends ViewModel {
         dosenRepository.getListDosen()
                 .subscribe(dosenList -> {
                     this.listDosen.postValue(dosenList);
-                    Log.d(TAG, "fetchDosen: success");
                 }, throwable -> {
-                    Log.d(TAG, "fetchDosen: error");
+                    Log.e(TAG, "fetchDosen: error");
                 });
     }
 

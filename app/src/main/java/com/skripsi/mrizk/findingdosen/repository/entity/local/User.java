@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen.repository.entity;
+package com.skripsi.mrizk.findingdosen.repository.entity.local;
 
 /**
  * Created by mrizk on 16/01/2018.

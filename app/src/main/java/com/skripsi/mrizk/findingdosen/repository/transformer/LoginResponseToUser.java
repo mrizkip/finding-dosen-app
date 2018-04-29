@@ -1,6 +1,6 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.User;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginResponse;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 
