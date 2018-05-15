@@ -31,7 +31,7 @@ public class FindingDosenApplication extends Application{
                 .build();
 
         dataComponent = DaggerIDataComponent.builder()
-                .dataModule(new DataModule("http://10.0.2.2:8080/"))
+                .dataModule(new DataModule("http://192.168.100.16:8080/"))
                 .build();
 
         mapperComponent = DaggerIMapperComponent.create();

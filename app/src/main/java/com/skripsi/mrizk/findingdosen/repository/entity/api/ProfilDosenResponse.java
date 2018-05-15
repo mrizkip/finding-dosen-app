@@ -7,7 +7,7 @@ public class ProfilDosenResponse {
 
     @SerializedName("user_id")
     @Expose
-    private Integer userId;
+    private int userId;
     @SerializedName("nama")
     @Expose
     private String nama;
@@ -33,11 +33,11 @@ public class ProfilDosenResponse {
     @Expose
     private String ketStatus;
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

@@ -6,6 +6,7 @@ import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorMessageRemoteT
 import com.skripsi.mrizk.findingdosen.repository.transformer.ErrorUnauthorizedRemoteToErrorUnauthorized;
 import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.transformer.PosisiDosenResponseToPosisiDosen;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ProfilDosenResponseToProfilDosen;
 import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
 import com.skripsi.mrizk.findingdosen.repository.transformer.UserRemoteToUser;
@@ -36,5 +37,7 @@ public interface IMapperComponent {
     DosenListResponseToDosenAdapter getDosenListResponseToDosenAdapter();
 
     ProfilDosenResponseToProfilDosen getProfilDosenResponseToProfilDosen();
+
+    PosisiDosenResponseToPosisiDosen getPosisiDosenResponseToPosisiDosen();
 
 }

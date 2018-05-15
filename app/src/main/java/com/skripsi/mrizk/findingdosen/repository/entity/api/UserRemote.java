@@ -11,7 +11,7 @@ public class UserRemote {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
     @SerializedName("email")
     @Expose
     private String email;
@@ -34,11 +34,11 @@ public class UserRemote {
     @Expose
     private String role;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

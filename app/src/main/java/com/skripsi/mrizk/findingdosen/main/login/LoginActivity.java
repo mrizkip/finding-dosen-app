@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
             // loginUser
             loginViewModel.loginUser(emailUser, passwordUser).observe(this, loginStatus -> {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 progressBar.setVisibility(View.GONE);
                 if (loginStatus) {
                     Toast.makeText(this, "Login Berhasil! ", Toast.LENGTH_SHORT).show();

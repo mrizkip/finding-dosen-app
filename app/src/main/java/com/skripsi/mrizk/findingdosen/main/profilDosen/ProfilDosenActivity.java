@@ -85,7 +85,7 @@ public class ProfilDosenActivity extends AppCompatActivity {
 
     private void viewLocation() {
         Intent intent = new Intent(ProfilDosenActivity.this, PosisiDosenActivity.class);
-        intent.putExtra("nama", profilDosen.getUserId());
+        intent.putExtra("userId", profilDosen.getUserId());
         startActivity(intent);
     }
 
