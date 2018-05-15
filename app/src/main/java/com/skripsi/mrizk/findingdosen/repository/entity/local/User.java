@@ -6,7 +6,7 @@ package com.skripsi.mrizk.findingdosen.repository.entity.local;
 
 public class User {
 
-    private Integer id;
+    private int id;
     private String email;
     private String password;
     private String nama;
@@ -16,11 +16,11 @@ public class User {
     private String role;
     private String token;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -2,6 +2,7 @@ package com.skripsi.mrizk.findingdosen.di.module;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IDosenPosition;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IDosenProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IFetchDosenRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
@@ -9,6 +10,7 @@ import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
 import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
+import com.skripsi.mrizk.findingdosen.repository.transformer.PosisiDosenResponseToPosisiDosen;
 import com.skripsi.mrizk.findingdosen.repository.transformer.ProfilDosenResponseToProfilDosen;
 
 import javax.inject.Singleton;
@@ -106,12 +108,16 @@ public class DataModule {
 
     @Provides
     @Singleton
-    public DosenRepository provideDosenRepository(IFetchDosenRequest iFetchDosenRequest,
-                                                  FetchDosenResponseToDosenAdapter dosenResponseToDosenAdapter,
-                                                  SharedPrefsUserRepository sharedPrefsUserRepository,
-                                                  ProfilDosenResponseToProfilDosen profilDosenResponseToProfilDosen,
-                                                  IDosenProfileRequest iDosenProfileRequest) {
-        return new DosenRepository(iFetchDosenRequest, dosenResponseToDosenAdapter, sharedPrefsUserRepository, profilDosenResponseToProfilDosen, iDosenProfileRequest);
+    public IDosenPosition provideDosenPosition(Retrofit retrofit) {
+        return retrofit.create(IDosenPosition.class);
+    }
+
+    @Provides
+    @Singleton
+    public DosenRepository provideDosenRepository(IFetchDosenRequest iFetchDosenRequest, FetchDosenResponseToDosenAdapter fetchDosenResponseToDosenAdapter,
+                                                  SharedPrefsUserRepository sharedPrefsUserRepository, ProfilDosenResponseToProfilDosen profilDosenResponseToProfilDosen,
+                                                  IDosenProfileRequest iDosenProfileRequest, IDosenPosition iDosenPosition, PosisiDosenResponseToPosisiDosen posisiDosenResponseToPosisiDosen) {
+        return new DosenRepository(iFetchDosenRequest, fetchDosenResponseToDosenAdapter, sharedPrefsUserRepository, profilDosenResponseToProfilDosen, iDosenProfileRequest, iDosenPosition, posisiDosenResponseToPosisiDosen);
     }
 
 }

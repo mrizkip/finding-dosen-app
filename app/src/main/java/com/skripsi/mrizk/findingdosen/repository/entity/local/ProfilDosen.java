@@ -2,7 +2,7 @@ package com.skripsi.mrizk.findingdosen.repository.entity.local;
 
 public class ProfilDosen {
 
-    private Integer userId;
+    private int userId;
     private String nama;
     private String email;
     private String jenisIdentitas;
@@ -12,11 +12,11 @@ public class ProfilDosen {
     private String descStatus;
     private String ketStatus;
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

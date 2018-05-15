@@ -52,10 +52,11 @@
                     android:textSize="16sp"
                     android:drawableLeft="@drawable/ic_check_circle_black_24dp"
                     android:drawableTint="@color/md_green_500"
-                    android:drawablePadding="30px"
+                    android:drawablePadding="10dp"
                     android:background="@drawable/custom_radio_button_background"
                     android:button="@android:color/transparent"
-                    />
+                    android:layout_marginEnd="5dp"
+                    android:drawableStart="@drawable/ic_check_circle_black_24dp" />
                 <RadioButton
                     android:id="@+id/editStatus_tidakAktif"
                     android:layout_width="match_parent"
@@ -68,10 +69,11 @@
                     android:textSize="16sp"
                     android:drawableLeft="@drawable/ic_do_not_disturb_on_black_24dp"
                     android:drawableTint="@color/md_red_500"
-                    android:drawablePadding="30px"
+                    android:drawablePadding="10dp"
                     android:background="@drawable/custom_radio_button_background"
                     android:button="@android:color/transparent"
-                    />
+                    android:layout_marginEnd="5dp"
+                    android:drawableStart="@drawable/ic_do_not_disturb_on_black_24dp" />
             </RadioGroup>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
@@ -111,7 +113,7 @@
                 <RadioGroup
                     android:id="@+id/editStatus_radioGroupKeterangan"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
                     <RadioButton
                         android:id="@+id/editStatus_keterangan1"
                         android:layout_width="match_parent"

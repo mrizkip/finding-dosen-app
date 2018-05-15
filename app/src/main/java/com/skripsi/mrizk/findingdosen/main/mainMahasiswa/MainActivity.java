@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             fastDosenAdapter.withOnClickListener((v, adapter, item, position) -> {
                 int idDosen = item.getUserID();
                 Intent intent = new Intent(MainActivity.this, ProfilDosenActivity.class);
-                intent.putExtra("UserID", item.getUserID());
+                intent.putExtra("UserID", idDosen);
                 startActivity(intent);
                 return true;
             });
