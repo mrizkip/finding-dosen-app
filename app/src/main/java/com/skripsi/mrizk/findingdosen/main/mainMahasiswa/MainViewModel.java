@@ -13,6 +13,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by mrizk on 17/03/2018.
  */
@@ -23,21 +26,24 @@ public class MainViewModel extends ViewModel {
 
     private final DosenRepository dosenRepository;
     private MutableLiveData<List<DosenAdapter>> listDosen;
+    private final CompositeDisposable compositeDisposable;
 
     public MainViewModel(DosenRepository dosenRepository) {
         this.dosenRepository = dosenRepository;
         listDosen = new MutableLiveData<>();
+        compositeDisposable = new CompositeDisposable();
 
         fetchDosen();
     }
 
     private void fetchDosen() {
-        dosenRepository.getListDosen()
+        Disposable disposable = dosenRepository.getListDosen()
                 .subscribe(dosenList -> {
                     this.listDosen.postValue(dosenList);
                 }, throwable -> {
                     Log.e(TAG, "fetchDosen: error");
                 });
+        compositeDisposable.add(disposable);
     }
 
 
@@ -62,5 +68,11 @@ public class MainViewModel extends ViewModel {
         }
     }
 
-
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (!compositeDisposable.isDisposed()) {
+            compositeDisposable.dispose();
+        }
+    }
 }

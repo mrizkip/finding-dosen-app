@@ -12,6 +12,8 @@ import com.skripsi.mrizk.findingdosen.repository.entity.api.RegisterRequest;
 
 import javax.inject.Inject;
 
+import io.reactivex.disposables.CompositeDisposable;
+
 /**
  * Created by mrizk on 15/03/2018.
  */
@@ -22,11 +24,13 @@ public class RegisterViewModel extends ViewModel {
     private final UserRepository userRepository;
     private MutableLiveData<Register> register;
     private MutableLiveData<Boolean> registerStatus;
+    private final CompositeDisposable compositeDisposable;
 
     public RegisterViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
         register = new MutableLiveData<>();
         registerStatus = new MutableLiveData<>();
+        compositeDisposable = new CompositeDisposable();
     }
 
     public LiveData<Boolean> registerUser(String email, String password, String nama, String jenisIdentitas, String noIdentitas, String noTelpon) {

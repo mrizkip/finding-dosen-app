@@ -1,4 +1,4 @@
-package com.skripsi.mrizk.findingdosen.main;
+package com.skripsi.mrizk.findingdosen.main.mainMahasiswa;
 
 
 import android.os.Bundle;
