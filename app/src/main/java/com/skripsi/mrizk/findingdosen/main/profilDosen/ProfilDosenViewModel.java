@@ -31,9 +31,7 @@ public class ProfilDosenViewModel extends ViewModel{
 
     public LiveData<ProfilDosen> getProfilDosen(int userId) {
         Disposable disposable = dosenRepository.getProfilDosen(userId)
-                .subscribe(dosen -> {
-                    profilDosen.postValue(dosen);
-                }, throwable -> {
+                .subscribe(profilDosen::postValue, throwable -> {
                     Log.e(TAG, "getProfilDosen: Error");
                 });
         compositeDisposable.add(disposable);

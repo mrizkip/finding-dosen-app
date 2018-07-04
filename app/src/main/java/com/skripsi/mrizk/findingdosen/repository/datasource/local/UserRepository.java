@@ -1,12 +1,14 @@
 package com.skripsi.mrizk.findingdosen.repository.datasource.local;
 
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IMyProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.local.Register;
 import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.RegisterRequest;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
+import com.skripsi.mrizk.findingdosen.repository.transformer.MyProfileResponseToUser;
 import com.skripsi.mrizk.findingdosen.repository.transformer.RegisterResponseToRegister;
 
 import javax.inject.Inject;
@@ -24,15 +26,24 @@ public class UserRepository {
 
     private final ILoginRequest iLoginRequest;
     private final IRegisterRequest iRegisterRequest;
+    private final IMyProfileRequest iMyProfileRequest;
     private final LoginResponseToUser loginResponseToUser;
     private final RegisterResponseToRegister registerResponseToRegister;
+    private final MyProfileResponseToUser myProfileResponseToUser;
+    private final String TOKEN;
 
     @Inject
-    public UserRepository(ILoginRequest iLoginRequest, IRegisterRequest iRegisterRequest, LoginResponseToUser loginResponseToUser, RegisterResponseToRegister registerResponseToRegister) {
+    public UserRepository(ILoginRequest iLoginRequest, IRegisterRequest iRegisterRequest,
+                          LoginResponseToUser loginResponseToUser, RegisterResponseToRegister registerResponseToRegister,
+                          IMyProfileRequest iMyProfileRequest, SharedPrefsUserRepository sharedPrefsUserRepository,
+                          MyProfileResponseToUser myProfileResponseToUser) {
         this.iLoginRequest = iLoginRequest;
         this.iRegisterRequest = iRegisterRequest;
         this.loginResponseToUser = loginResponseToUser;
         this.registerResponseToRegister = registerResponseToRegister;
+        this.iMyProfileRequest = iMyProfileRequest;
+        this.TOKEN = sharedPrefsUserRepository.getUserFromPrefs().getToken();
+        this.myProfileResponseToUser = myProfileResponseToUser;
     }
 
     public Observable<User> loginUser(LoginRequest loginRequest) {
@@ -47,6 +58,14 @@ public class UserRepository {
         return iRegisterRequest.register(registerRequest)
                 .toObservable()
                 .map(registerResponseToRegister::transform)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<User> myProfile() {
+        return iMyProfileRequest.myProfile(TOKEN)
+                .toObservable()
+                .map(myProfileResponseToUser::transform)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
