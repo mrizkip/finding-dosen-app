@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/profilDosen_imageViewProfile"
         android:layout_marginTop="25dp"
-        android:text="Nama Dosen"
+        tools:text="Nama Dosen"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconSchool"
                 android:layout_marginTop="20dp"
-                android:text="Sedang Mengajar"
+                tools:text="Sedang Mengajar"
                 android:textColor="@color/primaryText"
                 android:textSize="16sp"
                 />
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconSchool"
                 android:layout_below="@+id/profilDosen_textStatus"
-                android:text="di mana?"
+                tools:text="di mana?"
                 android:textColor="@color/md_grey_800"
                 />
 
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconCard"
                 android:layout_marginTop="10dp"
-                android:text="1234567890"
+                tools:text="1234567890"
                 android:textColor="@color/primaryText"
                 android:textSize="16sp"
                 />
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconCard"
                 android:layout_below="@+id/profilDosen_textNIP"
-                android:text="NIP"
+                tools:text="NIP"
                 android:textColor="@color/md_grey_800"
                 />
 
@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconCall"
                 android:layout_marginTop="10dp"
-                android:text="081234567890"
+                tools:text="081234567890"
                 android:textColor="@color/primaryText"
                 android:textSize="16sp"
                 />
@@ -207,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/profilDosen_iconEmail"
                 android:layout_marginTop="10dp"
-                android:text="youremail@mail.com"
+                tools:text="youremail@mail.com"
                 android:textColor="@color/primaryText"
                 android:textSize="16sp"
                 />

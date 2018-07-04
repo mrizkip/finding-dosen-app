@@ -52,7 +52,7 @@
                 android:layout_below="@id/posisiDosen_textCardProfil"
                 android:layout_toEndOf="@id/posisiDosen_textNama"
                 android:layout_toRightOf="@id/posisiDosen_textNama"
-                android:text="Nama Dosen"
+                tools:text="Nama Dosen"
                 android:textColor="@color/primaryText"
                 android:textSize="14sp" />
 
@@ -72,7 +72,7 @@
                 android:layout_below="@id/posisiDosen_textNama"
                 android:layout_toEndOf="@id/posisiDosen_textPosisi"
                 android:layout_toRightOf="@id/posisiDosen_textPosisi"
-                android:text="A1.10"
+                tools:text="A1.10"
                 android:textColor="@color/primaryText"
                 android:textSize="14sp" />
 
@@ -92,7 +92,7 @@
                 android:layout_below="@id/posisiDosen_textPosisi"
                 android:layout_toEndOf="@id/posisiDosen_textLastUpdate"
                 android:layout_toRightOf="@id/posisiDosen_textLastUpdate"
-                android:text="10:30"
+                tools:text="10:30"
                 android:textColor="@color/primaryText"
                 android:textSize="14sp" />
         </RelativeLayout>
