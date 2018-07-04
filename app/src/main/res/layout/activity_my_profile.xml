@@ -13,6 +13,7 @@
         android:layout_height="200dp"
         android:src="@drawable/line_divider"
         android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
         />
 
     <de.hdodenhof.circleimageview.CircleImageView

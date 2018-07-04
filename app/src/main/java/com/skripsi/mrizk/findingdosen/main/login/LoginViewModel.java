@@ -12,6 +12,9 @@ import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
 
 import javax.inject.Inject;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by mrizk on 08/03/2018.
  */
@@ -22,11 +25,13 @@ public class LoginViewModel extends ViewModel {
     private final UserRepository userRepository;
     private final SharedPrefsUserRepository sharedPrefsUserRepository;
     private MutableLiveData<Boolean> loginStatus;
+    private final CompositeDisposable compositeDisposable;
 
     public LoginViewModel(UserRepository userRepository, SharedPrefsUserRepository sharedPrefsUserRepository) {
         this.userRepository = userRepository;
         this.sharedPrefsUserRepository = sharedPrefsUserRepository;
         loginStatus = new MutableLiveData<>();
+        compositeDisposable = new CompositeDisposable();
     }
 
     public LiveData<Boolean> loginUser(String email, String password) {
@@ -34,13 +39,14 @@ public class LoginViewModel extends ViewModel {
         loginRequest.setEmail(email);
         loginRequest.setPassword(password);
 
-        userRepository.loginUser(loginRequest)
+        Disposable disposable = userRepository.loginUser(loginRequest)
                 .subscribe(user1 -> {
                     this.loginStatus.postValue(true);
                     sharedPrefsUserRepository.saveUserToPrefs(user1);
                 }, throwable -> {
                     this.loginStatus.postValue(false);
                 });
+        compositeDisposable.add(disposable);
         return loginStatus;
     }
 
@@ -59,6 +65,14 @@ public class LoginViewModel extends ViewModel {
         @Override
         public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             return (T) new LoginViewModel(userRepository, sharedPrefsUserRepository);
+        }
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (!compositeDisposable.isDisposed()) {
+            compositeDisposable.dispose();
         }
     }
 }

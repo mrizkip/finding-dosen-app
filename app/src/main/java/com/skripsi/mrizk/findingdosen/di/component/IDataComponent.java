@@ -3,6 +3,7 @@ package com.skripsi.mrizk.findingdosen.di.component;
 import com.skripsi.mrizk.findingdosen.di.module.DataModule;
 import com.skripsi.mrizk.findingdosen.main.login.LoginViewModel;
 import com.skripsi.mrizk.findingdosen.main.mainMahasiswa.MainViewModel;
+import com.skripsi.mrizk.findingdosen.main.myProfile.MyProfileViewModel;
 import com.skripsi.mrizk.findingdosen.main.posisiDosen.PosisiDosenViewModel;
 import com.skripsi.mrizk.findingdosen.main.profilDosen.ProfilDosenViewModel;
 import com.skripsi.mrizk.findingdosen.main.register.RegisterViewModel;
@@ -39,4 +40,5 @@ public interface IDataComponent {
 
     PosisiDosenViewModel.PosisiDosenViewModelFactory getPosisiDosenViewModelFactory();
 
+    MyProfileViewModel.MyProfileViewModelFactory getMyProfileViewModelFactory();
 }

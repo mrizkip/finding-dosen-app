@@ -67,6 +67,8 @@ public class ProfilDosenActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        initHeader();
+
         Intent intent = getIntent();
         int userId = intent.getIntExtra("UserID", 0);
 
@@ -83,6 +85,13 @@ public class ProfilDosenActivity extends AppCompatActivity {
 
     }
 
+    private void initHeader() {
+        int maxWidth = 720;
+        int height = 200;
+        Picasso.get().load("file:///android_asset/background_drawer1.png").resize(maxWidth, height).into(imageViewCover);
+        Picasso.get().load("file:///android_asset/profile-placeholder.png").resize(72,72).centerCrop().into(imageViewProfil);
+    }
+
     private void viewLocation() {
         Intent intent = new Intent(ProfilDosenActivity.this, PosisiDosenActivity.class);
         intent.putExtra("userId", profilDosen.getUserId());
@@ -90,10 +99,6 @@ public class ProfilDosenActivity extends AppCompatActivity {
     }
 
     private void setProfile() {
-        int maxWidth = 720;
-        int height = 200;
-        Picasso.get().load("file:///android_asset/background_drawer1.png").resize(maxWidth, height).into(imageViewCover);
-        Picasso.get().load("file:///android_asset/profile-placeholder.png").resize(72,72).centerCrop().into(imageViewProfil);
         namaDosen.setText(profilDosen.getNama());
         noIdentitas.setText(profilDosen.getNoIdentitas());
         jenisIdentitas.setText(profilDosen.getJenisIdentitas());
