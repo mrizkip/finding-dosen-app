@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
 import com.skripsi.mrizk.findingdosen.R;
+import com.skripsi.mrizk.findingdosen.main.mainDosen.MainActivityDosen;
 import com.skripsi.mrizk.findingdosen.main.mainMahasiswa.MainActivity;
 import com.skripsi.mrizk.findingdosen.main.register.RegisterActivity;
 
@@ -25,8 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private static final String TAG = "LoginActivity";
 
     @BindView(R.id.login_layout)
     RelativeLayout login_layout;
@@ -77,14 +76,21 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
             // loginUser
-            loginViewModel.loginUser(emailUser, passwordUser).observe(this, loginStatus -> {
+            loginViewModel.loginUser(emailUser, passwordUser).observe(this, loggedInUser -> {
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 progressBar.setVisibility(View.GONE);
-                if (loginStatus) {
-                    Toast.makeText(this, "Login Berhasil! ", Toast.LENGTH_SHORT).show();
-                    navigateToMainActivity();
+                if (loggedInUser != null) {
+                    if (loggedInUser.getRole().equalsIgnoreCase("Mahasiswa")) {
+                        Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show();
+                        navigateToMainActivity();
+                    } else if (loggedInUser.getRole().equalsIgnoreCase("Dosen")) {
+                        Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+                        navigateToMainActivityDosen();
+                    } else {
+                        Toast.makeText(this, "Login Gagal!", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Login Gagal! " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Login Gagal!", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -92,7 +98,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void navigateToMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        Log.d(TAG, "navigateToMainActivity: wtf");
+        startActivity(intent);
+        finish();
+    }
+
+    private void navigateToMainActivityDosen() {
+        Intent intent = new Intent(LoginActivity.this, MainActivityDosen.class);
         startActivity(intent);
         finish();
     }

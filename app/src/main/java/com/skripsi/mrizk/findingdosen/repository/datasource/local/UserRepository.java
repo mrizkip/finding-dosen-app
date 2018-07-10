@@ -1,5 +1,7 @@
 package com.skripsi.mrizk.findingdosen.repository.datasource.local;
 
+import android.util.Log;
+
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IMyProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
@@ -30,7 +32,7 @@ public class UserRepository {
     private final LoginResponseToUser loginResponseToUser;
     private final RegisterResponseToRegister registerResponseToRegister;
     private final MyProfileResponseToUser myProfileResponseToUser;
-    private final String TOKEN;
+    private final SharedPrefsUserRepository sharedPrefsUserRepository;
 
     @Inject
     public UserRepository(ILoginRequest iLoginRequest, IRegisterRequest iRegisterRequest,
@@ -42,7 +44,7 @@ public class UserRepository {
         this.loginResponseToUser = loginResponseToUser;
         this.registerResponseToRegister = registerResponseToRegister;
         this.iMyProfileRequest = iMyProfileRequest;
-        this.TOKEN = sharedPrefsUserRepository.getUserFromPrefs().getToken();
+        this.sharedPrefsUserRepository = sharedPrefsUserRepository;
         this.myProfileResponseToUser = myProfileResponseToUser;
     }
 
@@ -63,7 +65,8 @@ public class UserRepository {
     }
 
     public Observable<User> myProfile() {
-        return iMyProfileRequest.myProfile(TOKEN)
+        String token = sharedPrefsUserRepository.getUserFromPrefs().getToken();
+        return iMyProfileRequest.myProfile(token)
                 .toObservable()
                 .map(myProfileResponseToUser::transform)
                 .subscribeOn(Schedulers.io())

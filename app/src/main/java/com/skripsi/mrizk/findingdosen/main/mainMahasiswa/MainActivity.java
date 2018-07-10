@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
     private Drawer drawer;
     private PrimaryDrawerItem itemListDosen;
     private PrimaryDrawerItem itemLogout;
-    Drawable headerDrawable;
 
     private SharedPrefsUserRepository sharedPrefsUserRepository;
 
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("FINDING DOSEN");
+            actionBar.setTitle("Daftar Dosen");
         }
 
         initRecyclerView();
@@ -106,10 +105,10 @@ public class MainActivity extends AppCompatActivity {
         sharedPrefsUserRepository = FindingDosenApplication.getDataComponent()
                 .getSharedPrefsUserRepository();
 
+        setupDrawer();
+
         // get Dosen List from View Model
         mainViewModel.getDosenList().observe(this, this::updateDosenList);
-
-        setupDrawer();
     }
 
     private void setupDrawer() {
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         AccountHeader header = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.background_drawer1)
-                .addProfiles(new ProfileDrawerItem().withIdentifier(0).withName("Nama Saya"))
+                .addProfiles(new ProfileDrawerItem().withIdentifier(0).withName(sharedPrefsUserRepository.getUserFromPrefs().getNama()))
                 .withTextColor(Color.WHITE)
                 .withSelectionListEnabledForSingleProfile(false)
                 .withProfileImagesClickable(true)
@@ -161,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                                     logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(logoutIntent);
                                 })
-                                .setNegativeButton("TIDAK", (dialogInterface, i)-> drawer.setSelection(0))
+                                .setNegativeButton("TIDAK", (dialogInterface, i)-> drawer.setSelection(1))
                                 .show();
                         break;
                     default:

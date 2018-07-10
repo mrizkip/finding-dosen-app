@@ -19,6 +19,7 @@ public class SharedPrefsUserRepository {
     private static final String USER_EMAIL = "USER_EMAIL";
     private static final String USER_TOKEN = "USER_TOKEN";
     private static final String USER_ID = "USER_ID";
+    private static final String USER_NAME = "USER_NAME";
 
     private static final String UNAVAILABLE_VALUE = "Unavailable";
     private static final int ZERO_VALUE = 0;
@@ -38,6 +39,7 @@ public class SharedPrefsUserRepository {
         editor.putString(USER_EMAIL, user.getEmail());
         editor.putString(USER_TOKEN, user.getToken());
         editor.putInt(USER_ID, user.getId());
+        editor.putString(USER_NAME, user.getNama());
         editor.apply();
     }
 
@@ -45,18 +47,24 @@ public class SharedPrefsUserRepository {
         String email = sharedPrefs.getString(USER_EMAIL, UNAVAILABLE_VALUE);
         String token = sharedPrefs.getString(USER_TOKEN, UNAVAILABLE_VALUE);
         int id = sharedPrefs.getInt(USER_ID, ZERO_VALUE);
-        if (email.equalsIgnoreCase(UNAVAILABLE_VALUE) || token.equalsIgnoreCase(UNAVAILABLE_VALUE) || id == ZERO_VALUE) {
+        String nama = sharedPrefs.getString(USER_NAME, UNAVAILABLE_VALUE);
+        if (email.equalsIgnoreCase(UNAVAILABLE_VALUE) || token.equalsIgnoreCase(UNAVAILABLE_VALUE) ||
+                id == ZERO_VALUE || nama.equalsIgnoreCase(UNAVAILABLE_VALUE)) {
             return null;
         }
         User user = new User();
+        user.setId(id);
         user.setEmail(email);
         user.setToken(token);
+        user.setNama(nama);
         return user;
     }
 
     public void unsetUserFromPrefs() {
         editor.remove(USER_EMAIL);
         editor.remove(USER_TOKEN);
+        editor.remove(USER_ID);
+        editor.remove(USER_NAME);
         editor.apply();
     }
 }

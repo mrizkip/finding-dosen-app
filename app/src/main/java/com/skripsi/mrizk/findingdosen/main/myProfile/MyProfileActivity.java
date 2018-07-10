@@ -49,7 +49,7 @@ public class MyProfileActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != actionBar) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("PROFIL");
+            actionBar.setTitle("Profil Saya");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

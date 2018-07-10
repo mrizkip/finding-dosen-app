@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.UserRepository;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 
 import javax.inject.Inject;
 
@@ -24,30 +25,30 @@ public class LoginViewModel extends ViewModel {
 
     private final UserRepository userRepository;
     private final SharedPrefsUserRepository sharedPrefsUserRepository;
-    private MutableLiveData<Boolean> loginStatus;
+    private MutableLiveData<User> loggedInUser;
     private final CompositeDisposable compositeDisposable;
 
     public LoginViewModel(UserRepository userRepository, SharedPrefsUserRepository sharedPrefsUserRepository) {
         this.userRepository = userRepository;
         this.sharedPrefsUserRepository = sharedPrefsUserRepository;
-        loginStatus = new MutableLiveData<>();
+        loggedInUser = new MutableLiveData<>();
         compositeDisposable = new CompositeDisposable();
     }
 
-    public LiveData<Boolean> loginUser(String email, String password) {
+    public LiveData<User> loginUser(String email, String password) {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail(email);
         loginRequest.setPassword(password);
 
         Disposable disposable = userRepository.loginUser(loginRequest)
                 .subscribe(user1 -> {
-                    this.loginStatus.postValue(true);
+                    this.loggedInUser.postValue(user1);
                     sharedPrefsUserRepository.saveUserToPrefs(user1);
                 }, throwable -> {
-                    this.loginStatus.postValue(false);
+                    this.loggedInUser.postValue(null);
                 });
         compositeDisposable.add(disposable);
-        return loginStatus;
+        return loggedInUser;
     }
 
     public static class LoginViewModelFactory implements ViewModelProvider.Factory {
