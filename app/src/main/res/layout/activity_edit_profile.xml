@@ -61,7 +61,7 @@
         android:drawablePadding="5dp"
         android:maxLines="1"
         android:imeOptions="actionNext"
-        android:inputType="none"
+        android:inputType="textEmailAddress"
         />
 
     <TextView

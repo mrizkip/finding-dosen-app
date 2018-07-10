@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -106,6 +107,12 @@ public class ProfilDosenActivity extends AppCompatActivity {
         noTelponDosen.setText(profilDosen.getNoTelpon());
         status.setText(profilDosen.getStatus());
         keterangan.setText(profilDosen.getKetStatus());
+
+        if (profilDosen.getStatus().equalsIgnoreCase("Aktif")) {
+            lihatPetaButton.setVisibility(View.VISIBLE);
+        } else {
+            lihatPetaButton.setVisibility(View.GONE);
+        }
     }
 
     @Override
