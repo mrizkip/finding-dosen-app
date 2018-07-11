@@ -2,9 +2,12 @@ package com.skripsi.mrizk.findingdosen.repository.datasource.local;
 
 import android.util.Log;
 
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IEditProfilRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IMyProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
+import com.skripsi.mrizk.findingdosen.repository.entity.api.EditProfilRequest;
+import com.skripsi.mrizk.findingdosen.repository.entity.api.EditProfilResponse;
 import com.skripsi.mrizk.findingdosen.repository.entity.local.Register;
 import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.LoginRequest;
@@ -33,12 +36,13 @@ public class UserRepository {
     private final RegisterResponseToRegister registerResponseToRegister;
     private final MyProfileResponseToUser myProfileResponseToUser;
     private final SharedPrefsUserRepository sharedPrefsUserRepository;
+    private final IEditProfilRequest iEditProfilRequest;
 
     @Inject
     public UserRepository(ILoginRequest iLoginRequest, IRegisterRequest iRegisterRequest,
                           LoginResponseToUser loginResponseToUser, RegisterResponseToRegister registerResponseToRegister,
                           IMyProfileRequest iMyProfileRequest, SharedPrefsUserRepository sharedPrefsUserRepository,
-                          MyProfileResponseToUser myProfileResponseToUser) {
+                          MyProfileResponseToUser myProfileResponseToUser, IEditProfilRequest iEditProfilRequest) {
         this.iLoginRequest = iLoginRequest;
         this.iRegisterRequest = iRegisterRequest;
         this.loginResponseToUser = loginResponseToUser;
@@ -46,6 +50,7 @@ public class UserRepository {
         this.iMyProfileRequest = iMyProfileRequest;
         this.sharedPrefsUserRepository = sharedPrefsUserRepository;
         this.myProfileResponseToUser = myProfileResponseToUser;
+        this.iEditProfilRequest = iEditProfilRequest;
     }
 
     public Observable<User> loginUser(LoginRequest loginRequest) {
@@ -69,6 +74,16 @@ public class UserRepository {
         return iMyProfileRequest.myProfile(token)
                 .toObservable()
                 .map(myProfileResponseToUser::transform)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Observable<EditProfilResponse> editProfil(String noTelpon) {
+        EditProfilRequest request = new EditProfilRequest();
+        request.setNo_telpon(noTelpon);
+        String token = sharedPrefsUserRepository.getUserFromPrefs().getToken();
+        return iEditProfilRequest.editProfil(token, request)
+                .toObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

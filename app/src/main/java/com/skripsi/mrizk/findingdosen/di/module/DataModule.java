@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IDosenPosition;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IDosenProfileRequest;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IEditProfilRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IFetchDosenRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IMyProfileRequest;
@@ -138,11 +139,16 @@ public class DataModule {
     public UserRepository provideUserRepository(ILoginRequest iLoginRequest, IRegisterRequest iRegisterRequest,
                                                 LoginResponseToUser loginResponseToUser, RegisterResponseToRegister registerResponseToRegister,
                                                 IMyProfileRequest iMyProfileRequest, SharedPrefsUserRepository sharedPrefsUserRepository,
-                                                MyProfileResponseToUser myProfileResponseToUser) {
+                                                MyProfileResponseToUser myProfileResponseToUser, IEditProfilRequest iEditProfilRequest) {
         return new UserRepository(iLoginRequest, iRegisterRequest,
                 loginResponseToUser, registerResponseToRegister,
                 iMyProfileRequest, sharedPrefsUserRepository,
-                myProfileResponseToUser);
+                myProfileResponseToUser, iEditProfilRequest);
+    }
+
+    @Provides
+    public IEditProfilRequest provideIEditProfilRequest(Retrofit retrofit) {
+        return retrofit.create(IEditProfilRequest.class);
     }
 
 }
