@@ -99,7 +99,7 @@ public class MainActivityDosen extends AppCompatActivity {
         emailDosen.setText(profilDosen.getEmail());
         noTelpDosen.setText(profilDosen.getNoTelpon());
         statusDosen.setText(profilDosen.getStatus());
-        statusKeterangan.setText(profilDosen.getKetStatus());
+        statusKeterangan.setText(profilDosen.getDescStatus());
     }
 
     private void logout() {

@@ -106,7 +106,7 @@ public class ProfilDosenActivity extends AppCompatActivity {
         email.setText(profilDosen.getEmail());
         noTelponDosen.setText(profilDosen.getNoTelpon());
         status.setText(profilDosen.getStatus());
-        keterangan.setText(profilDosen.getKetStatus());
+        keterangan.setText(profilDosen.getDescStatus());
 
         if (profilDosen.getStatus().equalsIgnoreCase("Aktif")) {
             lihatPetaButton.setVisibility(View.VISIBLE);

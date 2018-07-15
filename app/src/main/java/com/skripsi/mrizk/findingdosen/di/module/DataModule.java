@@ -9,6 +9,7 @@ import com.skripsi.mrizk.findingdosen.repository.datasource.api.IFetchDosenReque
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.ILoginRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IMyProfileRequest;
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest;
+import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRubahStatus;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.UserRepository;
@@ -149,6 +150,12 @@ public class DataModule {
     @Provides
     public IEditProfilRequest provideIEditProfilRequest(Retrofit retrofit) {
         return retrofit.create(IEditProfilRequest.class);
+    }
+
+    @Provides
+    @Singleton
+    public IRubahStatus provide(Retrofit retrofit) {
+        return retrofit.create(IRubahStatus.class);
     }
 
 }
