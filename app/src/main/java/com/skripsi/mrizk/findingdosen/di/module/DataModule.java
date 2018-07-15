@@ -12,6 +12,7 @@ import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRegisterRequest
 import com.skripsi.mrizk.findingdosen.repository.datasource.api.IRubahStatus;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
+import com.skripsi.mrizk.findingdosen.repository.datasource.local.StatusRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.UserRepository;
 import com.skripsi.mrizk.findingdosen.repository.transformer.FetchDosenResponseToDosenAdapter;
 import com.skripsi.mrizk.findingdosen.repository.transformer.LoginResponseToUser;
@@ -154,8 +155,14 @@ public class DataModule {
 
     @Provides
     @Singleton
-    public IRubahStatus provide(Retrofit retrofit) {
+    public IRubahStatus provideIrubahStatus(Retrofit retrofit) {
         return retrofit.create(IRubahStatus.class);
+    }
+
+    @Provides
+    @Singleton
+    public StatusRepository provideStatusRepository(IRubahStatus iRubahStatus, SharedPrefsUserRepository sharedPrefsUserRepository) {
+        return new StatusRepository(iRubahStatus, sharedPrefsUserRepository);
     }
 
 }

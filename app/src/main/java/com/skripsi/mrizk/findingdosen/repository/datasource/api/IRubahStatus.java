@@ -7,13 +7,14 @@ import com.skripsi.mrizk.findingdosen.repository.entity.api.RubahStatusResponse;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface IRubahStatus {
 
     @POST("dosen/update_status")
-    Single<RubahStatusResponse> ubahStatus(@Body RubahStatusRequest rubahStatusRequest);
+    Single<RubahStatusResponse> ubahStatus(@Header("Authorization") String authorization, @Body RubahStatusRequest rubahStatusRequest);
 
     @POST("dosen/update_location")
-    Single<RubahLokasiResponse> ubahLokasi(@Body RubahLokasiRequest rubahLokasiRequest);
+    Single<RubahLokasiResponse> ubahLokasi(@Header("Authorization") String authorization, @Body RubahLokasiRequest rubahLokasiRequest);
 }
