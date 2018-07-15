@@ -4,9 +4,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.skripsi.mrizk.findingdosen.R;
 
@@ -19,20 +21,15 @@ public class EditStatusActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.editStatus_radioGroupStatus)
     RadioGroup radioGroupStatus;
-    @BindView(R.id.editStatus_aktif)
-    RadioButton aktif;
-    @BindView(R.id.editStatus_tidakAktif)
-    RadioButton tidakAktif;
-    @BindView(R.id.editStatus_radioGroupKeterangan)
-    RadioGroup radioGroupKeterangan;
-    @BindView(R.id.editStatus_keterangan1)
-    RadioButton keterangan1;
-    @BindView(R.id.editStatus_keterangan2)
-    RadioButton keterangan2;
     @BindView(R.id.editStatusDetail_textDetail)
     EditText detailStatus;
+    @BindView(R.id.editStatus_btnSimpan)
+    Button btnSimpan;
 
     ActionBar actionBar;
+
+    private String status;
+    private String keterangan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +43,30 @@ public class EditStatusActivity extends AppCompatActivity {
             actionBar = getSupportActionBar();
             actionBar.setTitle("Edit Status");
         }
+
+        btnSimpan.setOnClickListener(view -> {
+            if (detailStatus.getText().toString().isEmpty()) {
+                keterangan = "";
+            } else {
+                keterangan = detailStatus.getText().toString();
+            }
+            switch (radioGroupStatus.getCheckedRadioButtonId()) {
+                case R.id.editStatus_aktif:
+                    status = "Aktif";
+                    simpanStatus();
+                    break;
+                case R.id.editStatus_tidakAktif:
+                    status = "Tidak Aktif";
+                    simpanStatus();
+                    break;
+                case -1:
+                    Toast.makeText(this, "Pilih Status!", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        });
+    }
+
+    private void simpanStatus() {
+
     }
 }

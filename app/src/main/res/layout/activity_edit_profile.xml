@@ -82,12 +82,12 @@
         android:layout_below="@id/editProfile_textNoTelpon"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+        android:drawableLeft="@drawable/ic_call_black_24dp"
         android:drawablePadding="5dp"
-        android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+        android:drawableStart="@drawable/ic_call_black_24dp"
         android:hint="Nomor Telpon"
         android:imeOptions="actionNext"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:maxLines="1"
         />
 

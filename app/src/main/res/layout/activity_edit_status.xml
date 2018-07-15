@@ -47,10 +47,9 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/custom_radio_button_background"
                     android:button="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+                    android:drawableLeft="@drawable/ic_check_circle_green_24dp"
                     android:drawablePadding="10dp"
-                    android:drawableStart="@drawable/ic_check_circle_black_24dp"
-                    android:drawableTint="@color/md_green_500"
+                    android:drawableStart="@drawable/ic_check_circle_green_24dp"
                     android:padding="5dp"
                     android:text="Aktif"
                     android:textColor="@color/primaryText"
@@ -65,10 +64,9 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/custom_radio_button_background"
                     android:button="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_do_not_disturb_on_black_24dp"
+                    android:drawableLeft="@drawable/ic_do_not_disturb_on_red_24dp"
                     android:drawablePadding="10dp"
-                    android:drawableStart="@drawable/ic_do_not_disturb_on_black_24dp"
-                    android:drawableTint="@color/md_red_500"
+                    android:drawableStart="@drawable/ic_do_not_disturb_on_red_24dp"
                     android:padding="5dp"
                     android:text="Tidak Aktif"
                     android:textColor="@color/primaryText"
@@ -78,66 +76,10 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/editStatus_cardViewStatusKeterangan"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/editStatus_cardViewDetail"
-        android:layout_below="@id/editStatus_cardViewStatus"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="2dp">
-
-        <RelativeLayout
-            android:id="@+id/editStatus_layoutKeterangan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/editStatus_keteranganInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Keterangan"
-                android:textColor="@color/primary"
-                android:textSize="14sp" />
-
-            <ScrollView
-                android:id="@+id/editStatus_scrollViewKeterangan"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/editStatus_keteranganInfo"
-                android:layout_marginTop="10dp">
-
-                <RadioGroup
-                    android:id="@+id/editStatus_radioGroupKeterangan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/editStatus_keterangan1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Di Ruangan" />
-
-                    <RadioButton
-                        android:id="@+id/editStatus_keterangan2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Kelas" />
-
-                </RadioGroup>
-
-            </ScrollView>
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
         android:id="@+id/editStatus_cardViewDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/editStatus_cardViewStatus"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -169,5 +111,17 @@
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/editStatus_btnSimpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editStatus_cardViewDetail"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Simpan"
+        android:textColor="@color/md_white_1000"
+        android:backgroundTint="@color/colorAccent"
+        />
 
 </RelativeLayout>

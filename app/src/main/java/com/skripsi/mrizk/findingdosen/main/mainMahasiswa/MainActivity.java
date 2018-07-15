@@ -108,8 +108,10 @@ public class MainActivity extends AppCompatActivity {
         setupDrawer();
 
         // get Dosen List from View Model
-        mainViewModel.getDosenList().observe(this, this::updateDosenList);
+        mainViewModel.getDosenList().observe(this, this::lihatDaftarDosen);
     }
+
+
 
     private void setupDrawer() {
         itemListDosen = new PrimaryDrawerItem().withIdentifier(1).withName("Daftar Dosen")
@@ -203,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateDosenList(List<DosenAdapter> listDosen) {
+    private void lihatDaftarDosen(List<DosenAdapter> listDosen) {
         dosenList = listDosen;
         fastDosenAdapter.set(dosenList);
         fastDosenAdapter.notifyDataSetChanged();

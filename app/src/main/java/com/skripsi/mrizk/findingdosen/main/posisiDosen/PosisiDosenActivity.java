@@ -21,11 +21,11 @@ import butterknife.ButterKnife;
 public class PosisiDosenActivity extends AppCompatActivity {
 
     @BindView(R.id.posisiDosen_namaDosen)
-    TextView namaDosen;
+    TextView tvNamaDosen;
     @BindView(R.id.posisiDosen_lokasiDosen)
-    TextView lokasiDosen;
+    TextView tvLokasiDosen;
     @BindView(R.id.posisiDosen_lastUpdate)
-    TextView terkahirDiperbarui;
+    TextView tvTerkahirDiperbarui;
     @BindView(R.id.posisiDosen_imageViewPosisi)
     ImageView imageViewPosisi;
     @BindView(R.id.posisiDosen_toolbar)
@@ -33,7 +33,6 @@ public class PosisiDosenActivity extends AppCompatActivity {
     ActionBar actionBar;
 
     private PosisiDosenViewModel viewModel;
-    private PosisiDosen posisiDosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +53,14 @@ public class PosisiDosenActivity extends AppCompatActivity {
 
         viewModel = ViewModelProviders.of(this, FindingDosenApplication.getDataComponent().getPosisiDosenViewModelFactory())
                 .get(PosisiDosenViewModel.class);
-        posisiDosen = new PosisiDosen();
 
-        viewModel.getPosisiDosen(userId).observe(this, posisi -> {
-            posisiDosen = posisi;
-            setPosisi();
-        });
+        viewModel.getPosisiDosen(userId).observe(this, this::lihatPosisiDosen);
     }
 
-    private void setPosisi() {
-        namaDosen.setText(posisiDosen.getNama());
-        lokasiDosen.setText(posisiDosen.getPosisi());
-        terkahirDiperbarui.setText(posisiDosen.getLastUpdate());
+    private void lihatPosisiDosen(PosisiDosen posisiDosen) {
+        tvNamaDosen.setText(posisiDosen.getNama());
+        tvLokasiDosen.setText(posisiDosen.getPosisi());
+        tvTerkahirDiperbarui.setText(posisiDosen.getLastUpdate());
         Picasso.get().load("file:///android_asset/profile-placeholder.png").resize(200, 200).centerCrop().into(imageViewPosisi);
     }
 

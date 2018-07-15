@@ -25,6 +25,7 @@ public class MyProfileResponseToUser extends BaseLayerDataTransformer<MyProfileR
         user.setNama(from.getData().getNama());
         user.setJenisIdentitas(from.getData().getJenisIdentitas());
         user.setNoIdentitas(from.getData().getNoIdentitas());
+        user.setNoTelpon(from.getData().getNoTelpon());
         user.setRole(from.getData().getRole());
         return user;
     }
