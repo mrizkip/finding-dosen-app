@@ -31,8 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     RelativeLayout login_layout;
     @BindView(R.id.login_judul)
     TextView judul;
-    @BindView(R.id.login_logo)
-    ImageView logo;
     @BindView(R.id.login_email)
     EditText email;
     @BindView(R.id.login_password)

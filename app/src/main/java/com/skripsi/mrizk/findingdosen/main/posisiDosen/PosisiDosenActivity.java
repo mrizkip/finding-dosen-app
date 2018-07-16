@@ -2,6 +2,7 @@ package com.skripsi.mrizk.findingdosen.main.posisiDosen;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,7 +62,13 @@ public class PosisiDosenActivity extends AppCompatActivity {
         tvNamaDosen.setText(posisiDosen.getNama());
         tvLokasiDosen.setText(posisiDosen.getPosisi());
         tvTerkahirDiperbarui.setText(posisiDosen.getLastUpdate());
-        Picasso.get().load("file:///android_asset/profile-placeholder.png").resize(200, 200).centerCrop().into(imageViewPosisi);
+        if (posisiDosen.getPosisi().startsWith("A1") || posisiDosen.getPosisi().startsWith("LA1")) {
+            Picasso.get().load("https://s3-ap-southeast-1.amazonaws.com/findingdosen/COLOR+RADIOMAP+GEDUNG+A+LANTAI+1.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("A2") || posisiDosen.getPosisi().startsWith("LA2")) {
+            Picasso.get().load("https://s3-ap-southeast-1.amazonaws.com/findingdosen/COLOR+RADIOMAP+GEDUNG+A+LANTAI+2.jpg").into(imageViewPosisi);
+        } else {
+            imageViewPosisi.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_close_grey_24dp));
+        }
     }
 
     @Override
