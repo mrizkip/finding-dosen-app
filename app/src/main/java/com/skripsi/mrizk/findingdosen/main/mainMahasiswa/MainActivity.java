@@ -1,23 +1,9 @@
 package com.skripsi.mrizk.findingdosen.main.mainMahasiswa;
 
-import android.Manifest;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
+import android.app.SearchManager;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -28,14 +14,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.MultiplePermissionsReport;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -43,19 +23,14 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
 import com.skripsi.mrizk.findingdosen.R;
 import com.skripsi.mrizk.findingdosen.main.login.LoginActivity;
-import com.skripsi.mrizk.findingdosen.main.login.LoginViewModel;
 import com.skripsi.mrizk.findingdosen.main.myProfile.MyProfileActivity;
 import com.skripsi.mrizk.findingdosen.main.profilDosen.ProfilDosenActivity;
-import com.skripsi.mrizk.findingdosen.repository.datasource.local.DosenRepository;
 import com.skripsi.mrizk.findingdosen.repository.datasource.local.SharedPrefsUserRepository;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +38,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, SearchView.OnCloseListener {
 
     private static final String TAG = "MainActivity";
 
@@ -79,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<DosenAdapter> dosenList;
     private FastItemAdapter<DosenAdapter> fastDosenAdapter;
+
+    private List<DosenAdapter> dosenFilterList;
 
     private Drawer drawer;
     private PrimaryDrawerItem itemListDosen;
@@ -97,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
             actionBar = getSupportActionBar();
             actionBar.setTitle("Daftar Dosen");
         }
+
+        SearchManager searchManager = (SearchManager) this.getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setIconifiedByDefault(false);
+        searchView.setOnQueryTextListener(this);
+        searchView.setOnCloseListener(this);
 
         initRecyclerView();
 
@@ -186,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         dosenList = new ArrayList<>();
         fastDosenAdapter = new FastItemAdapter<>();
+        dosenFilterList = new ArrayList<>();
 
         // set to adapter
         fastDosenAdapter.set(dosenList);
@@ -211,5 +195,50 @@ public class MainActivity extends AppCompatActivity {
         fastDosenAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public boolean onClose() {
+        filterData("");
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        searchView.clearFocus();
+        filterData(s);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        if (s.trim().isEmpty()) {
+            filterData("");
+        } else {
+            filterData(s);
+        }
+        return false;
+    }
+
+    private void filterData(String query) {
+        query = query.trim().toLowerCase();
+
+        dosenFilterList.clear();
+
+        if (query.isEmpty()) {
+            dosenFilterList.addAll(dosenList);
+            FastItemAdapter<DosenAdapter> newDosenAdapter = new FastItemAdapter<>();
+            newDosenAdapter.set(dosenFilterList);
+            recyclerView.setAdapter(newDosenAdapter);
+        } else {
+            dosenFilterList.clear();
+            for (DosenAdapter dosen : dosenList) {
+                if (dosen.getNamaDosen().toLowerCase().contains(query)) {
+                    dosenFilterList.add(dosen);
+                }
+            }
+            FastItemAdapter<DosenAdapter> newDosenAdapter = new FastItemAdapter<>();
+            newDosenAdapter.set(dosenFilterList);
+            recyclerView.setAdapter(newDosenAdapter);
+        }
+    }
 }
 
