@@ -35,7 +35,7 @@ public class EditProfilViewModel extends ViewModel {
     private void fetchProfile() {
         Disposable disposable = userRepository.myProfile()
                 .subscribe(userLiveData::postValue, throwable -> userLiveData.postValue(null));
-        compositeDisposable.add(compositeDisposable);
+        compositeDisposable.add(disposable);
     }
 
     public LiveData<User> getProfil() {

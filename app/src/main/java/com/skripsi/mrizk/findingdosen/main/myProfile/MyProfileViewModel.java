@@ -33,7 +33,7 @@ public class MyProfileViewModel extends ViewModel {
         Disposable disposable = userRepository.myProfile()
                 .subscribe(userMutableLiveData::postValue,
                         throwable -> Log.e(TAG, "getMyProfile: Error"));
-        compositeDisposable.dispose();
+        compositeDisposable.add(disposable);
     }
 
     public LiveData<User> getMyProfile() {

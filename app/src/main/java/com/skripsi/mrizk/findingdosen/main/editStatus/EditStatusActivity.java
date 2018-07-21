@@ -145,6 +145,7 @@ public class EditStatusActivity extends AppCompatActivity {
     }
 
     private void ubahStatusDosen() {
+        // TODO REMOVE FOR LOOP
         if (!scanResults.isEmpty()) {
             Log.d(TAG, "ubahStatusDosen: " + scanResults.size());
             List<AccessPointRequest> listApRequest = new ArrayList<>();

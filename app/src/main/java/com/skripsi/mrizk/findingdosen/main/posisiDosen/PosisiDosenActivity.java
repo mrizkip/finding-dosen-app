@@ -58,6 +58,7 @@ public class PosisiDosenActivity extends AppCompatActivity {
         viewModel.getPosisiDosen(userId).observe(this, this::lihatPosisiDosen);
     }
 
+    // TODO UPDATE IMAGES
     private void lihatPosisiDosen(PosisiDosen posisiDosen) {
         tvNamaDosen.setText(posisiDosen.getNama());
         tvLokasiDosen.setText(posisiDosen.getPosisi());
