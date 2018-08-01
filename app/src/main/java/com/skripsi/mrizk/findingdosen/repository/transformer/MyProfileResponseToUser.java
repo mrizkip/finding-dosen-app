@@ -1,6 +1,6 @@
 package com.skripsi.mrizk.findingdosen.repository.transformer;
 
-import com.skripsi.mrizk.findingdosen.repository.entity.User;
+import com.skripsi.mrizk.findingdosen.repository.entity.local.User;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.MyProfileResponse;
 import com.skripsi.mrizk.findingdosen.repository.utils.BaseLayerDataTransformer;
 
@@ -25,6 +25,7 @@ public class MyProfileResponseToUser extends BaseLayerDataTransformer<MyProfileR
         user.setNama(from.getData().getNama());
         user.setJenisIdentitas(from.getData().getJenisIdentitas());
         user.setNoIdentitas(from.getData().getNoIdentitas());
+        user.setNoTelpon(from.getData().getNoTelpon());
         user.setRole(from.getData().getRole());
         return user;
     }

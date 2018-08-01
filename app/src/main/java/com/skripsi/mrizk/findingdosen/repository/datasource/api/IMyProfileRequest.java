@@ -3,6 +3,7 @@ package com.skripsi.mrizk.findingdosen.repository.datasource.api;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.MyProfileResponse;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -14,5 +15,5 @@ import retrofit2.http.Header;
 public interface IMyProfileRequest {
 
     @GET("user/my_profile")
-    Observable<Response<MyProfileResponse>> myProfile(@Header("Authorization") String authorization);
+    Single<MyProfileResponse> myProfile(@Header("Authorization") String authorization);
 }

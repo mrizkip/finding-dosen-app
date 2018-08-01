@@ -4,23 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
-    tools:context="com.skripsi.mrizk.findingdosen.main.MainActivity">
+    android:focusableInTouchMode="true"
+    tools:context="com.skripsi.mrizk.findingdosen.main.mainMahasiswa.MainActivity">
 
     <include
         android:id="@+id/mainActivity_toolbar"
-        layout="@layout/view_toolbar"></include>
+        layout="@layout/view_toolbar"/>
 
     <android.support.v7.widget.SearchView
         android:id="@+id/mainActivity_searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mainActivity_toolbar"/>
+        android:layout_marginBottom="5dp"
+        android:background="@color/md_white_1000"
+        app:closeIcon="@drawable/ic_close_black_24dp"
+        app:queryHint="Nama Dosen"
+        app:queryBackground="@color/md_white_1000"
+        app:iconifiedByDefault="false"
+        android:layout_below="@id/mainActivity_toolbar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mainActivity_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/mainActivity_searchView"/>
+        android:layout_below="@id/mainActivity_searchView"
+        tools:listitem="@layout/list_dosen_adapter"
+        />
 
 </RelativeLayout>

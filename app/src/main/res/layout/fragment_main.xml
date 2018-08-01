@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.skripsi.mrizk.findingdosen.main.mainMahasiswa.MainFragment">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/mainFragment_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/md_white_1000"
+        app:closeIcon="@drawable/ic_close_black_24dp"
+        app:queryHint="Nama Dosen"
+        app:queryBackground="@color/md_white_1000"
+        app:iconifiedByDefault="false"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mainFragment_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mainFragment_searchView"/>
+
+</RelativeLayout>

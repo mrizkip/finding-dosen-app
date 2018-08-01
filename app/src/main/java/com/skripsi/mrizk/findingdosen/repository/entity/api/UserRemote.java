@@ -11,7 +11,7 @@ public class UserRemote {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private int id;
     @SerializedName("email")
     @Expose
     private String email;
@@ -27,15 +27,18 @@ public class UserRemote {
     @SerializedName("no_identitas")
     @Expose
     private String noIdentitas;
+    @SerializedName("no_telpon")
+    @Expose
+    private String noTelpon;
     @SerializedName("role")
     @Expose
     private String role;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -77,6 +80,14 @@ public class UserRemote {
 
     public void setNoIdentitas(String noIdentitas) {
         this.noIdentitas = noIdentitas;
+    }
+
+    public String getNoTelpon() {
+        return noTelpon;
+    }
+
+    public void setNoTelpon(String noTelpon) {
+        this.noTelpon = noTelpon;
     }
 
     public String getRole() {

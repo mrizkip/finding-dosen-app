@@ -4,5 +4,6 @@
     <string-array name="jenis_identitas">
         <item>NIM</item>
         <item>NIP</item>
+        <item>NIK</item>
     </string-array>
 </resources>

@@ -4,178 +4,221 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.RegisterActivity"
-    android:background="@color/md_white_1000">
+    android:background="@color/md_white_1000"
+    android:id="@+id/register_layout"
+    tools:context="com.skripsi.mrizk.findingdosen.main.register.RegisterActivity">
 
-    <include 
+    <include
         android:id="@+id/register_toolbar"
-        layout="@layout/view_toolbar" ></include>
+        layout="@layout/view_toolbar"></include>
 
-    <TextView
-        android:id="@+id/register_textNama"
+    <ScrollView
+        android:id="@+id/register_scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nama Lengkap"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/register_toolbar"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        />
+        android:layout_height="match_parent"
+        android:layout_below="@id/register_toolbar">
 
-    <EditText
-        android:id="@+id/register_nama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_textNama"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-        android:hint="Nama Lengkap"
-        android:drawablePadding="5dp"
-        android:inputType="textCapWords"
-        android:maxLines="1"
-        android:imeOptions="actionNext"
-        />
-
-    <TextView
-        android:id="@+id/register_textEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/register_nama"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        />
-
-    <EditText
-        android:id="@+id/register_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_textEmail"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
-        android:hint="Email"
-        android:drawablePadding="5dp"
-        android:maxLines="1"
-        android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
-        />
-
-    <TextView
-        android:id="@+id/register_textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/register_email"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        />
-
-    <EditText
-        android:id="@+id/register_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_textPassword"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-        android:hint="Password"
-        android:drawablePadding="5dp"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:imeOptions="actionNext"
-        />
-
-    <TextView
-        android:id="@+id/register_textJenisIdentitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Jenis Identitas"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/register_password"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        />
-
-    <FrameLayout
-        android:id="@+id/register_frameLayoutSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_textJenisIdentitas"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/button_border"
-        >
-        <Spinner
-            android:id="@+id/register_spinner"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/register_textJenisIdentitas"
-            android:entries="@array/jenis_identitas"
-            style="@style/Widget.AppCompat.DropDownItem.Spinner"
-            android:spinnerMode="dropdown"
-            >
-        </Spinner>
-    </FrameLayout>
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/register_textNoIdentitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nomor Identitas"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/register_frameLayoutSpinner"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="5dp"
-        />
+            <TextView
+                android:id="@+id/register_textNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Nama Lengkap"
+                android:textColor="@color/md_grey_800" />
 
-    <EditText
-        android:id="@+id/register_noIdentitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_textNoIdentitas"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-        android:hint="1234567890"
-        android:drawablePadding="5dp"
-        android:inputType="number"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        />
+            <EditText
+                android:id="@+id/register_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textNama"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="Nama Lengkap"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLines="1" />
 
-    <Button
-        android:id="@+id/register_buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register_noIdentitas"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:text="REGISTER NEW ACCOUNT"
-        android:textColor="@color/md_white_1000"
-        android:textStyle="bold"
-        android:backgroundTint="@color/colorAccent"
+            <TextView
+                android:id="@+id/register_textEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_nama"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Email"
+                android:textColor="@color/md_grey_800" />
 
-        />
+            <EditText
+                android:id="@+id/register_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textEmail"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="Email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
 
-    <TextView
-        android:id="@+id/register_textLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/register_buttonRegister"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Have an account? Login now"
-        android:textColor="@color/primaryText"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/register_textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_email"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Password"
+                android:textColor="@color/md_grey_800" />
 
+            <EditText
+                android:id="@+id/register_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textPassword"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="Password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/register_textJenisIdentitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_password"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Jenis Identitas"
+                android:textColor="@color/md_grey_800" />
+
+            <FrameLayout
+                android:id="@+id/register_frameLayoutSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textJenisIdentitas"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/button_border">
+
+                <Spinner
+                    android:id="@+id/register_spinner_jenisIdentitas"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/register_textJenisIdentitas"
+                    android:entries="@array/jenis_identitas"
+                    android:spinnerMode="dropdown"></Spinner>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/register_textNoIdentitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_frameLayoutSpinner"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Nomor Identitas"
+                android:textColor="@color/md_grey_800" />
+
+            <EditText
+                android:id="@+id/register_noIdentitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textNoIdentitas"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="1234567890"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/register_textNoTelpon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_noIdentitas"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Nomor Telpon"
+                android:textColor="@color/md_grey_800" />
+
+            <EditText
+                android:id="@+id/register_noTelpon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_textNoTelpon"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:drawableLeft="@drawable/ic_call_black_24dp"
+                android:drawablePadding="5dp"
+                android:hint="081234567890"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/register_buttonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_noTelpon"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="DAFTAR"
+                android:textColor="@color/md_white_1000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/register_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/register_buttonRegister"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/register_textLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="Sudah punya akun? "
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/register_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="Masuk sekarang"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

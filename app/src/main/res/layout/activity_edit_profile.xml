@@ -4,131 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.skripsi.mrizk.findingdosen.main.EditProfileActivity"
-    android:background="@color/md_white_1000">
+    android:background="@color/md_white_1000"
+    tools:context="com.skripsi.mrizk.findingdosen.main.editProfil.EditProfileActivity">
 
     <include
         android:id="@+id/editProfile_toolbar"
-        layout="@layout/view_toolbar" ></include>
+        layout="@layout/view_toolbar" />
 
     <TextView
         android:id="@+id/editProfile_textNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Lengkap"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/editProfile_toolbar"
-        android:layout_marginTop="15dp"
+        android:layout_below="@id/editProfile_toolbar"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        />
+        android:layout_marginTop="15dp"
+        android:text="Nama Lengkap"
+        android:textColor="@color/md_grey_800" />
 
     <EditText
         android:id="@+id/editProfile_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_textNama"
+        android:layout_below="@id/editProfile_textNama"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:clickable="false"
         android:drawableLeft="@drawable/ic_person_outline_black_24dp"
-        android:text="Nama Lengkap"
         android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_person_outline_black_24dp"
+        android:enabled="false"
+        android:focusable="false"
         android:inputType="none"
         android:maxLines="1"
-        android:imeOptions="actionNext"
-        />
+        android:text="Nama Lengkap" />
 
     <TextView
         android:id="@+id/editProfile_textEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/editProfile_nama"
+        android:layout_below="@id/editProfile_nama"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        />
+        android:text="Email"
+        android:textColor="@color/md_grey_800" />
 
     <EditText
         android:id="@+id/editProfile_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_textEmail"
+        android:layout_below="@id/editProfile_textEmail"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:clickable="false"
         android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
-        android:text="Email"
         android:drawablePadding="5dp"
+        android:enabled="false"
+        android:focusable="false"
+        android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:imeOptions="actionNext"
-        android:inputType="none"
-        />
+        android:text="Email" />
 
     <TextView
-        android:id="@+id/editProfile_textPassword"
+        android:id="@+id/editProfile_textNoTelpon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password Lama"
-        android:textColor="@color/md_grey_800"
         android:layout_below="@+id/editProfile_email"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        />
+        android:text="Nomor Telpon"
+        android:textColor="@color/md_grey_800" />
 
     <EditText
-        android:id="@+id/editProfile_password"
+        android:id="@+id/editProfile_noTelpon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_textPassword"
+        android:layout_below="@id/editProfile_textNoTelpon"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-        android:hint="Password Lama"
+        android:drawableLeft="@drawable/ic_call_black_24dp"
         android:drawablePadding="5dp"
-        android:inputType="textPassword"
-        android:maxLines="1"
+        android:drawableStart="@drawable/ic_call_black_24dp"
+        android:hint="Nomor Telpon"
         android:imeOptions="actionNext"
-        />
-
-    <TextView
-        android:id="@+id/editProfile_textNoIdentitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password Baru"
-        android:textColor="@color/md_grey_800"
-        android:layout_below="@+id/editProfile_password"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="5dp"
-        />
-
-    <EditText
-        android:id="@+id/editProfile_noIdentitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_textNoIdentitas"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-        android:hint="Password Baru"
-        android:drawablePadding="5dp"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:maxLines="1"
-        android:imeOptions="actionDone"
         />
 
     <Button
         android:id="@+id/editProfile_buttoneditProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfile_noIdentitas"
+        android:layout_below="@+id/editProfile_noTelpon"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/colorAccent"
         android:text="SIMPAN"
         android:textColor="@color/md_white_1000"
         android:textStyle="bold"
-        android:backgroundTint="@color/colorAccent"
 
         />
 

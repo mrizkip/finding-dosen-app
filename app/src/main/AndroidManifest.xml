@@ -7,31 +7,35 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".FindingDosenApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.mainMahasiswa.MainActivity">
+        </activity>
+        <activity android:name=".main.login.LoginActivity" />
+        <activity android:name=".main.register.RegisterActivity" />
+        <activity android:name=".main.profilDosen.ProfilDosenActivity" />
+        <activity android:name=".main.myProfile.MyProfileActivity" />
+        <activity android:name=".main.editProfil.EditProfileActivity" />
+        <activity android:name=".main.posisiDosen.PosisiDosenActivity" />
+        <activity android:name=".main.mainDosen.MainActivityDosen" />
+        <activity android:name=".main.editStatus.EditStatusActivity" />
+        <activity android:name=".main.StatusAktifActivity" />
+        <activity android:name=".main.StatusTidakAktifActivity" />
+        <activity android:name=".main.splashScreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.LoginActivity" />
-        <activity android:name=".main.RegisterActivity" />
-        <activity android:name=".main.ProfilDosenActivity" />
-        <activity android:name=".main.MyProfileActivity" />
-        <activity android:name=".main.EditProfileActivity" />
-        <activity android:name=".main.PosisiDosenActivity" />
-        <activity android:name=".main.MainActivityDosen" />
-        <activity android:name=".main.EditStatusActivity" />
-        <activity android:name=".main.StatusAktifActivity" />
-        <activity android:name=".main.StatusTidakAktifActivity"></activity>
     </application>
 
 </manifest>
