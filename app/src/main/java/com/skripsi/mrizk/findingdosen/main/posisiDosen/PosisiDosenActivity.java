@@ -58,15 +58,24 @@ public class PosisiDosenActivity extends AppCompatActivity {
         viewModel.getPosisiDosen(userId).observe(this, this::lihatPosisiDosen);
     }
 
-    // TODO UPDATE IMAGES
     private void lihatPosisiDosen(PosisiDosen posisiDosen) {
         tvNamaDosen.setText(posisiDosen.getNama());
         tvLokasiDosen.setText(posisiDosen.getPosisi());
         tvTerkahirDiperbarui.setText(posisiDosen.getLastUpdate());
         if (posisiDosen.getPosisi().startsWith("A1") || posisiDosen.getPosisi().startsWith("LA1")) {
-            Picasso.get().load("https://s3-ap-southeast-1.amazonaws.com/findingdosen/COLOR+RADIOMAP+GEDUNG+A+LANTAI+1.jpg").into(imageViewPosisi);
+            Picasso.get().load("http://mediku.id/assets/GedungA1.jpg").into(imageViewPosisi);
         } else if (posisiDosen.getPosisi().startsWith("A2") || posisiDosen.getPosisi().startsWith("LA2")) {
-            Picasso.get().load("https://s3-ap-southeast-1.amazonaws.com/findingdosen/COLOR+RADIOMAP+GEDUNG+A+LANTAI+2.jpg").into(imageViewPosisi);
+            Picasso.get().load("http://mediku.id/assets/GedungA2.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("E1") || posisiDosen.getPosisi().startsWith("LE1")) {
+            Picasso.get().load("http://mediku.id/assets/GedungE1.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("E2") || posisiDosen.getPosisi().startsWith("LE2")) {
+            Picasso.get().load("http://mediku.id/assets/GedungE2.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("F2")) {
+            Picasso.get().load("http://mediku.id/assets/GedungF2.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("F3")) {
+            Picasso.get().load("http://mediku.id/assets/GedungF3.jpg").into(imageViewPosisi);
+        } else if (posisiDosen.getPosisi().startsWith("F4")) {
+            Picasso.get().load("http://mediku.id/assets/GedungF4.jpg").into(imageViewPosisi);
         } else {
             imageViewPosisi.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_close_grey_24dp));
         }

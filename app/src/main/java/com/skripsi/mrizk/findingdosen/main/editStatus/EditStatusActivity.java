@@ -1,11 +1,9 @@
 package com.skripsi.mrizk.findingdosen.main.editStatus;
 
 import android.Manifest;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
@@ -19,7 +17,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -31,7 +28,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.skripsi.mrizk.findingdosen.FindingDosenApplication;
 import com.skripsi.mrizk.findingdosen.R;
 import com.skripsi.mrizk.findingdosen.main.mainDosen.MainActivityDosen;
-import com.skripsi.mrizk.findingdosen.main.mainDosen.MainDosenViewModel;
 import com.skripsi.mrizk.findingdosen.repository.entity.api.AccessPointRequest;
 
 import java.util.ArrayList;
@@ -62,7 +58,12 @@ public class EditStatusActivity extends AppCompatActivity {
 
     private int scanCount;
 
-    private List<ScanResult> scanResults = new ArrayList<>();
+    private List<ScanResult> apResult = new ArrayList<>();
+    private List<AccessPointRequest> scanResults = new ArrayList<>();
+
+    private WifiManager mWifiManager;
+    private BroadcastReceiver broadcastReceiver;
+//    private WifiReceiver wifiReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +133,7 @@ public class EditStatusActivity extends AppCompatActivity {
                 Toast.makeText(this, "Perubahan status berhasil", Toast.LENGTH_SHORT).show();
                 if (status.equalsIgnoreCase("Aktif")) {
                     // scan wifi and update location
+                    transformResult();
                     ubahStatusDosen();
                 } else {
                     Intent intent = new Intent(EditStatusActivity.this, MainActivityDosen.class);
@@ -144,19 +146,23 @@ public class EditStatusActivity extends AppCompatActivity {
         });
     }
 
-    private void ubahStatusDosen() {
-        // TODO REMOVE FOR LOOP
-        if (!scanResults.isEmpty()) {
-            Log.d(TAG, "ubahStatusDosen: " + scanResults.size());
-            List<AccessPointRequest> listApRequest = new ArrayList<>();
-            for (ScanResult result : scanResults) {
+    private void transformResult() {
+        if (!apResult.isEmpty()) {
+            for (ScanResult result : apResult) {
                 AccessPointRequest apReqeust = new AccessPointRequest();
                 apReqeust.setBSSID(result.BSSID);
                 apReqeust.setSSID(result.SSID);
                 apReqeust.setLevel(result.level);
-                listApRequest.add(apReqeust);
+                scanResults.add(apReqeust);
             }
-            editStatusViewModel.ubahLokasi(listApRequest).observe(this, rubahLokasiResponse -> {
+        }
+    }
+
+    private void ubahStatusDosen() {
+        // check ap is empty ?
+        if (!scanResults.isEmpty()) {
+            Log.d(TAG, "ubahStatusDosen: " + scanResults.size());
+            editStatusViewModel.ubahLokasi(scanResults).observe(this, rubahLokasiResponse -> {
                 if (rubahLokasiResponse != null) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this)
                             .setTitle("Ubah Status")
@@ -182,9 +188,8 @@ public class EditStatusActivity extends AppCompatActivity {
         }
     }
 
-
     private void accessWifiManager() {
-        final WifiManager mWifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        mWifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
 
         if (mWifiManager.getWifiState() == WifiManager.WIFI_STATE_ENABLED) {
 
@@ -192,22 +197,34 @@ public class EditStatusActivity extends AppCompatActivity {
             IntentFilter filter = new IntentFilter();
             filter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
 
-            registerReceiver(new BroadcastReceiver() {
+            broadcastReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
-
                     List<ScanResult> resultList = mWifiManager.getScanResults();
-                    scanResults.addAll(resultList);
-                    int N = scanResults.size();
-
-                    Log.v(TAG, "Wi-Fi Scan Results ... Count:" + N);
+                    apResult.addAll(resultList);
                 }
-            }, filter);
+            };
+//            wifiReceiver = new WifiReceiver();
+            registerReceiver(broadcastReceiver, filter);
 
             // start WiFi Scan
             mWifiManager.startScan();
         }
     }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
+//        registerReceiver(wifiReceiver, filter);
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        unregisterReceiver(wifiReceiver);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -218,4 +235,14 @@ public class EditStatusActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+//    class WifiReceiver extends BroadcastReceiver {
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            List<ScanResult> resultList = mWifiManager.getScanResults();
+//            apResult.addAll(resultList);
+//            int N = apResult.size();
+//        }
+//    }
 }
